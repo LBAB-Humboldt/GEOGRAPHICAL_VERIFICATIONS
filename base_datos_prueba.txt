@@ -1,0 +1,301 @@
+id	nombre	pais  	Departamento	municipio	latitud	longitud	fecha_inicial	localidad
+22	NA_NA	CO	La Guajira	NA	12.2	-72.1333	NA	Cabo de la Vela
+25	Spathochlamys_benedicti	CO	La Guajira	NA	12.2075	-72.17278	NA	"Guajira Peninsula, off Cabo la Vela, 40 m, dredged alive"
+30	Sideroxylon_obtusifolium	CO	La Guajira	Uribia	12.13	-72.03	NA	"Municipio Uribia: Carretera Puerto Bolivar-Cabo de la Vela, km 4."
+31	NA_NA	CO	La Guajira	Uribia	12.13	-72.03	NA	NA
+33	NA_NA	CO	La Guajira	Uribia	12.17	-72.05	NA	"Carretera Puerto Bolívar-Cabo de la Vela, Km. 15."
+59	Scorpaena_isthmensis	CO	NA	NA	12.2097225	-72.17917	NA	1 miles southwest of Cape La Vela
+60	NA_NA	CO	NA	NA	12.2097225	-72.17917	NA	1 mile southwest off Cape la Vela
+73	Serranus_atrobranchus	CO	NA	NA	12.2097225	-72.17917	NA	1 miles southwest of Cape La Vela
+94	Thyroscyphus_marginatus	CO	NA	NA	12.166667	-72.11667	NA	"Kolumbien, Guajira, Choco-Expedition"
+301	Glossophaga_longirostris	CO	NA	NA	12.02288	-72.15	NA	"LA GUAJIRA, 3 KM S"
+302	Glossophaga_longirostris	CO	NA	NA	12.02288	-72.15	NA	"LA GUAJIRA, 3 KM S"
+303	Micronycteris_megalotis	CO	NA	NA	12.05	-72.15	NA	LAS ARENAS
+304	Micronycteris_megalotis	CO	NA	NA	12.05	-72.15	NA	LAS ARENAS
+507	NA_NA	CO	LA GUAJIRA	URIBIA	12.1333	-72.0333	NA	"Carretera Puerto Bolivar-Cabo de La Vela, Km. 4."
+508	NA_NA	CO	LA GUAJIRA	URIBIA	12.1667	-72.05	NA	Carretera Puerto Bolivar-Cabo de la Vela. Km 15.
+509	Sideroxylon_obtusifolium	CO	NA	NA	12.133333	-72.03333	NA	Uribia
+510	Caulerpa_prolifera	CO	NA	NA	12.2097225	-72.17917	NA	Cape la Vela
+511	Botryocladia_botryoides	CO	La Guajira Department	NA	12.2097225	-72.17917	NA	"Peninsula de la Guajira, near Cabo de la Vela"
+512	Caulerpa_mexicana	CO	NA	NA	12.2097225	-72.17917	NA	Near Cape la Vela
+513	Codium_isthmocladum	CO	NA	NA	12.2097225	-72.17917	NA	Cape la Vela
+608	Astropecten_duplicatus	CO	Guajira	NA	12.2	-72.1	NA	Guajira Peninsula
+621	Achelous_spinimanus	CO	NA	NA	12.2	-72.1	NA	Off Cabo De La Vela
+630	Eurycyde_curvata	CO	NA	NA	12.209722	-72.17917	NA	S Of Colombia
+645	Meiosquilla_schmitti	CO	NA	NA	12.209722	-72.17917	NA	S Of Cape La Vela
+668	Argopecten_lineolaris	CO	Guajira	NA	12.2	-72.1	NA	"Guajira Peninsula, W Of Peninsula"
+687	Scyllarus_chacei	CO	NA	NA	12.209722	-72.179	NA	SW Of Cabo De La Vela
+699	NA_NA	CO	NA	NA	12.2	-72.1	NA	N Of Cabo De La Vela
+721	Rimapenaeus_similis	CO	NA	NA	12.2	-72.1	NA	Off Cabo De La Vela
+726	Conus_austini	CO	NA	NA	12.2	-72.1	NA	NW  Of Carrizal
+746	Anoplodactylus_insignis	CO	NA	NA	12.209722	-72.17917	NA	S Of Cape La Vela
+751	Conus_austini	CO	NA	NA	12.2	-72.1	NA	"NW, Off Carrizal"
+766	Brissopsis_elongata	CO	NA	NA	12.2	-72.1	NA	NA
+783	Argopecten_lineolaris	CO	Guajira	NA	12.2	-72.1	NA	"Guajira Peninsula, N Of Peninsula"
+793	Narcissia_trigonaria	CO	NA	NA	12.2	-72.1	NA	NA
+808	NA_NA	CO	NA	NA	12.2	-72.1	NA	5 Mile N Of Carrizal
+810	Pallenopsis_schmitti	CO	NA	NA	12.209722	-72.17917	NA	S Of Cape La Vela
+828	Bigelowina_biminiensis	CO	NA	NA	12.209722	-72.17917	NA	"Cape La Vela, S Of Cape La Vela"
+837	Farfantepenaeus_notialis	CO	NA	NA	12.2	-72.1	NA	Off Cabo De La Vela
+897	Tringa_melanoleuca	CO	La Guajira	NA	12.253205	-71.972466	NA	Lagunas de Oxidación Puerto Bolivar
+898	Burhinus_bistriatus	CO	La Guajira	NA	12.252198	-71.97195	NA	Lagunas de Oxidación Puerto Bolivar
+899	Egretta_thula	CO	La Guajira	NA	12.253205	-71.972466	NA	Lagunas de Oxidación Puerto Bolivar
+900	Actitis_macularius	CO	La Guajira	NA	12.253205	-71.972466	NA	Lagunas de Oxidación Puerto Bolivar
+901	Phalacrocorax_brasilianus	CO	La Guajira	NA	12.253205	-71.972466	NA	Lagunas de Oxidación Puerto Bolivar
+902	Pandion_haliaetus	CO	La Guajira	NA	12.252198	-71.97195	NA	Lagunas de Oxidación Puerto Bolivar
+903	Calidris_himantopus	CO	La Guajira	NA	12.253205	-71.972466	NA	Lagunas de Oxidación Puerto Bolivar
+904	Arenaria_interpres	CO	La Guajira	NA	12.253205	-71.972466	NA	Lagunas de Oxidación Puerto Bolivar
+905	Actitis_macularius	CO	La Guajira	NA	12.252198	-71.97195	NA	Lagunas de Oxidación Puerto Bolivar
+906	Egretta_thula	CO	La Guajira	NA	12.252198	-71.97195	NA	Lagunas de Oxidación Puerto Bolivar
+907	Nycticorax_nycticorax	CO	La Guajira	NA	12.253205	-71.972466	NA	Lagunas de Oxidación Puerto Bolivar
+908	Arenaria_interpres	CO	La Guajira	NA	12.252198	-71.97195	NA	Lagunas de Oxidación Puerto Bolivar
+776897	NA_NA	BR	Amazonas	NA	1.12	-69.42	NA	"Fronteira de Rbasil e Colombia , Municipio de Fronteira de Brasil e Colombia, Municipio do Novo Japura, confluencia dos rios Traira e Apaporis, proximo a cachoeira Urumutum. Mata de beira d erio, solo argiloso."
+776898	Miconia_truncata	BR	Amazonas	NA	1.23	-69.42	NA	"Municipio de Novo japura, Vila Bittencourt, rio Apaporis, margem esquerda, igarape preguica, proximo ao Beque de Infantaria. Mata de igapo, solo argilo-arenoso."
+776901	Miconia_splendens	BR	Amazonas	NA	1.32	-69.3	NA	"Rio Solimoes and Rio Javari. Cachoeira Seringal, Rio Javari. Varzea forest."
+776903	Ossaea_cucullata	BR	Amazonas	NA	1.42	-69.42	NA	"Vila Bittencourt, rio Japurá, margem direita, localidade denominadaSerrinha,. Mata de terra firme, umaelevacáo , solo pedregoso recoberto de liquens e musgos."
+776904	Micrandra_siphonioides	BR	NA	NA	1.23	-69.42	NA	"Fronteira de Brasil e Colombia, Municipio de Novo Japura, Vila Bittencourt, RioApaporis, margem esquerda, igarape Preguica, proximo ao BEque de Infantaria. Mata de igapo, solo argilo-arenoso."
+776905	Eugenia_florida	BR	Amazonas	NA	1.25	-69.42	NA	"Fronteira de Brasil e Colombia, Municipio d eNovo Japura, Vila Bittencourt, ao longo do rio, confluencia dos rios Japura e Apaporis acima do terceiro Batalhao de iNfantaria. Mata de varzea, solo argilo arenoso."
+776906	Micrandra_siphonioides	BR	NA	NA	1.42	-69.42	NA	"Fronteira de brasil e Colombia, Municipio de Novo Japurá, Vila Bittenocurt, alto rio Japura afluente do rio Solimoes, terceiro Batalhao de infantaria. Mata de varzea, solo argilo-arenoso."
+776907	Cauloramphus_cymbaeformis	BR	NA	NA	1.6	-68.2	NA	NA
+776908	NA_NA	BR	NA	NA	1.37	-68.6	NA	"Hylaea, Rio Aiary, Maloka"
+776909	Bactris_simplicifrons	BR	Amazonas	NA	1.3	-68.65	NA	"Rio Uaupés, Ipanoré (= Panuré). Disturbed caatinga."
+776910	NA_NA	BR	Amazonas	NA	1.51	-68.71	NA	Municipio de São Gabriel da Cachoeira. Rio Içana. Comunidade Jandu Cachoeira. Secondary forest on sandy loam in campinarana (white sand) matrix. Along path near small stream bed.
+776911	NA_NA	BR	Amazonas	NA	1.51	-68.71	NA	Muncipio São Gabriel da Cachoeira. Rio Içana. Comunidade Jandu Cachoeira. Secondary forest on sandy loam in campinarana (white sand) matrix. Along path near small stream bed. N 1º 30.491' W 68º 42.797'.
+777400	Scleria_cyperina	BR	Amazonas	NA	1.47	-68	NA	"Iauareté, SA-19-VB."
+777685	Eufriesea_laniventris	BR	Amazonas	NA	1.1296	-67.2	NA	Fonte Boa
+777908	Lystra_lanata	BR	NA	NA	1.0830556	-67.61667	NA	"Santarem, Amazonas, Amazonas"
+779063	Leandra_rhodopogon	BR	Amazonas	NA	1.47	-68	NA	Uaupés.
+779126	NA_NA	BR	Amazonas	NA	1.12	-67.73	NA	Rio Pacimoni
+779133	NA_NA	BR	Amazonas	NA	1.47	-68	NA	Uaupés.
+779909	Tococa_subciliata	BR	Amazonas	NA	1	-67.2	NA	"Cucui, Rio Xie"
+780882	NA_NA	BR	Amazonas	NA	1	-67.2	NA	"Upper Rio Negro; Cucuí; Rio Xié, 1 hr. upstream from mouth by motorboat."
+780893	NA_NA	BR	NA	NA	1.2	-67.85	NA	"Igarape Arraia, Para"
+781121	NA_NA	BR	Amazonas	NA	1.47	-68	NA	Uaupés.
+781262	NA_NA	BR	Amazonas	NA	1.47	-68	NA	Uaupés.
+781381	NA_NA	BR	Amazonas	NA	1.2	-66.85	NA	"Cucui, sandbank on Colombian border."
+781382	Lonchogenys_ilisha	BR	Amazonas	NA	1.2	-66.85	NA	"Cucui, sandbank on Colombian border."
+781383	Trachydoras_microstomus	BR	Amazonas	NA	1.2	-66.85	NA	"Cucui, sandbank on Colombian border."
+781384	Amblydoras_bolivarensis	BR	Amazonas	NA	1.2	-66.85	NA	"Cucui, sandbank on Colombian border."
+781385	NA_NA	BR	Amazonas	NA	1.2	-66.85	NA	"Cucui, sandbank on Colombian border."
+781386	NA_NA	BR	Amazonas	NA	1.2	-66.85	NA	"Cucui, sandbank on Colombian border."
+781387	Bivibranchia_fowleri	BR	Amazonas	NA	1.2	-66.85	NA	"Cucui, sandbank on Colombian border."
+781388	Moenkhausia_oligolepis	BR	Amazonas	NA	1.2	-66.85	NA	"Cucui, sandbank on Colombian border."
+781389	Microphilypnus_amazonicus	BR	Amazonas	NA	1.2	-66.85	NA	"Cucui, sandbank on Colombian border."
+781390	NA_NA	BR	Amazonas	NA	1.2	-66.85	NA	"Cucui, sandbank on Colombian border."
+781391	Microschemobrycon_casiquiare	BR	Amazonas	NA	1.2	-66.85	NA	"Cucui, sandbank on Colombian border."
+781392	Microschemobrycon_casiquiare	BR	Amazonas	NA	1.2	-66.85	NA	"Cucui, sandbank on Colombian border."
+781393	Lonchogenys_ilisha	BR	Amazonas	NA	1.2	-66.85	NA	"Cucui, sandbank on Colombian border."
+781395	Lonchogenys_ilisha	BR	Amazonas	NA	1.2	-66.85	NA	"Cucui, sandbank on Colombian border."
+781396	Trachydoras_microstomus	BR	Amazonas	NA	1.2	-66.85	NA	"Cucui, sandbank on Colombian border."
+781397	NA_NA	BR	Amazonas	NA	1.2	-66.85	NA	"Cucui, sandbank on Colombian border."
+781398	NA_NA	BR	Amazonas	NA	1.2	-66.85	NA	"Cucui, sandbank on Colombian border."
+781399	Acestrocephalus_sardina	BR	Amazonas	NA	1.2	-66.85	NA	"Cucui, sandbank on Colombian border."
+781400	NA_NA	BR	Amazonas	NA	1.2	-66.85	NA	"Cucui, sandbank on Colombian border."
+781401	Creagrutus_maxillaris	BR	Amazonas	NA	1.2	-66.85	NA	"Cucui, sandbank on Colombian border."
+781402	Amblydoras_affinis	BR	Amazonas	NA	1.2	-66.85	NA	"Cucui, sandbank on Colombian border."
+781403	NA_NA	BR	Amazonas	NA	1.2	-66.85	NA	"Cucui, sandbank on Colombian border."
+781404	NA_NA	BR	Amazonas	NA	1.2	-66.85	NA	"Cucui, sandbank on Colombian border."
+781405	NA_NA	BR	Amazonas	NA	1.2	-66.85	NA	"Cucui, sandbank on Colombian border."
+781406	Creagrutus_maxillaris	BR	Amazonas	NA	1.2	-66.85	NA	"Cucui, sandbank on Colombian border."
+781407	NA_NA	BR	Amazonas	NA	1.2	-66.85	NA	"Cucui, sandbank on Colombian border."
+781408	NA_NA	BR	Amazonas	NA	1.2	-66.85	NA	"Cucui, sandbank on Colombian border."
+37751	Caprimulgus_rufus	VE	Zulia	NA	11.37	-72.07	NA	15 km SW from: Guarero; Goajiro; camp #1
+37752	Arremonops_tocuyensis	VE	Zulia	NA	11.37	-72.07	NA	15 km SW from: Guarero
+37755	Hypnelus_ruficollis	VE	Zulia	NA	11.37	-72.07	NA	0 km from: Guarero; Carretal
+37757	Sakesphorus_canadensis	VE	Zulia	NA	11.37	-72.07	NA	0 km from: Guarero; Carretal
+37758	Sporophila_lineola	VE	Zulia	NA	11.05	-72.03	NA	NA
+37759	Crypturellus_noctivagus	VE	Zulia	NA	11.37	-72.07	NA	15 km SW from: Guarero; Dto. Guajara; camp #2
+37760	Sporophila_lineola	VE	Zulia	NA	11.05	-72.03	NA	NA
+37761	Myiarchus_venezuelensis	VE	Zulia	NA	11.15	-72.23	NA	from: Sw Mision Guana
+37762	Caprimulgus_rufus	VE	Zulia	NA	11.37	-72.07	NA	0 km from: near Guarero; Carretal
+37763	Sporophila_lineola	VE	Zulia	NA	11.05	-72.03	NA	NA
+37766	Coccyzus_americanus	VE	Zulia	NA	11.37	-72.07	NA	15 km SW from: Guanero (goajira)
+37767	Vireo_olivaceus	VE	Zulia	NA	11.37	-72.07	NA	15 km SW from: Guarero; camp #1
+37770	Arremonops_tocuyensis	VE	Zulia	NA	11.37	-72.07	NA	15 km SW from: Guarero; Camp #2
+37772	Turdus_fumigatus	VE	Zulia	NA	11.05	-72.03	NA	NA
+37773	Coccyzus_americanus	VE	Zulia	NA	11.37	-72.07	NA	15 km SW from: Guarero; Camp #1
+37775	Leptotila_verreauxi	VE	Zulia	NA	11.37	-72.07	NA	15 km SW from: Guarero; Guajira; camp #1
+37776	Geranospiza_caerulescens	VE	Zulia	NA	11.37	-72.07	NA	15 km NW from: Guarero; Guajira; camp #1
+37777	Sakesphorus_melanonotus	VE	Zulia	NA	11.37	-72.07	NA	15 km SW from: Guarero; Goajara; camp #1
+37779	Sakesphorus_canadensis	VE	Zulia	NA	11.05	-72.03	NA	NA
+37782	Hemitriccus_margaritaceiventer	VE	Zulia	NA	11.37	-72.07	NA	5 km SW from: Guarero; Goajira; camp #1
+37786	Cyanocompsa_cyanoides	VE	Zulia	NA	11.05	-72.03	NA	NA
+37791	Sakesphorus_canadensis	VE	Zulia	NA	11.05	-72.03	NA	NA
+37792	Sporophila_lineola	VE	Zulia	NA	11.05	-72.03	NA	NA
+37793	Myiarchus_panamensis	VE	Zulia	NA	11.15	-72.23	NA	15 km S from: Mision Guana
+37795	Crypturellus_noctivagus	VE	Zulia	NA	11.37	-72.07	NA	15 km SW from: Guarero; Dto. Guajara; camp #1
+37811	Acalypha_diversifolia	VE	V	NA	11.02	-72.3	NA	"Dto. Mara, 3 km WSW of Corpozulia"
+37814	Cecropia_schreberiana	VE	Zulia	NA	11.03	-72.29	NA	"Distrito Mara: pastured valley along road, near Hacienda Rancho 55, 2 1/2 km west of Corpozulia Campamento Carichuano."
+37815	Ixora_floribunda	VE	Zulia	NA	11.07	-72.3	NA	"Distrito Mara: Cerro Cinco de Julio, lower eastern slopes along Caño Roblecito, 7 1/2km northwest of Corpozulia Campamento Carichuano"
+37816	Cecropia_schreberiana	VE	Zulia	NA	11.03	-72.29	NA	"District Mara: pastured valley along road, near Hacienda rancho 55 2 1/2 km west of Corpozulia Campamento Carichuano."
+37817	Ixora_floribunda	VE	Zulia	NA	11	-72.29	NA	"Distrito mara; forest remnant, 3km (by air) WSW of Corpozulia Campaamento Carichuano"
+37821	Cestrum_alternifolium	VE	Zulia	NA	11.08	-72.26	NA	"Distrito Mara: forested river bank along Rio Guasare (south side), 8 km (by air) north of Corpozulia Campamento Carichuano, east of El Carbon Estacion Hidrometeorolgica (M.O.P.)"
+37823	Psychotria_cuspidata	VE	Zulia	NA	11.02	-72.33	NA	"Cerro Los Manantiales, forested uppermost slopes and ridges, east Río Guasare, west Hacienda Los Manantiales, on property of Professor Morales, 12 km west of Corpozulia Campamento Carichuano"
+37824	Trophis_racemosa	VE	Zulia	NA	11.04	-72.35	NA	"Cerro Cinco de Julio, western slopes to Río Guasare, 8 1/2-10 km (by air) northwest of Corpozulia Campamento Carichuano,"
+37826	Philodendron_trujilloi	VE	Zulia	NA	11.02	-72.33	NA	"Cerro Los Manantiales, forested uppermost slopes and ridges, east of Río Guasare, west of Hacienda Los Manantiales, on property of Professor Morales, 12 km west of Corpozulia Campamento Carichuano."
+37828	Acalypha_diversifolia	VE	Zulia	NA	11	-72.29	NA	"Distrito Mara: forest remnant, 3 km (by air) WSW of Corpozulia Campamento Carichuano."
+37830	Solanum_torvum	VE	Zulia	NA	11.04	-72.28	NA	"Distrito Mara: undisturbed deciduous forest remnant on low hills, 4 km (by air) north of Corpozulia Campamento Carichuano."
+37832	Psychotria_horizontalis	VE	Zulia	NA	11.08	-72.26	NA	"Distrito Mara: forested river bank along Río Guasare (south side), 8 km (by air) north of Corpozulia Campamento Carichuano, east of El Carbon Estación Hidro-meteorologica (M.O.P.)"
+37834	Sporobolus_virginicus	VE	Zulia	NA	11.45	-72.03	NA	"Region Goajira. Carretera San Rafael del Moján, 1 km de Puerto Guerrero. Mpio. San Rafael. Distrito Mara"
+37835	Dorstenia_contrajerva	VE	Zulia	NA	11	-72.29	NA	"Distrito Mara: forest remnant, 3 km (by air) WSW of Corpozulia Campamento Carichuano."
+37836	Dorstenia_contrajerva	VE	Zulia	NA	11.04	-72.28	NA	"Distrito Mara; undisturbed deciduous forest. remnant on low hills, 4 km (by air) north of Corpozulia Campamento Carichuano."
+37837	Passiflora_biflora	VE	Zulia	NA	11.08	-72.1	NA	"Dtto. Mara: cuenca del rio Guasare: via entre Represa Manuelote y Destacamento Guasare (La Yolanda) aprox. 30-35 km al SO de la Represa (2-4 Km al NE del Pozo de La Danta, en bosque de transici@3on de seco a siempreverde."
+37838	Echinochloa_colona	VE	Zulia	NA	11.08	-72.25	NA	"Distrito Mara: wet grassy area by ford, south side of Río Guasare, east of El Carbon Estación Hidrometeorologica (M.O.P), north of Hacienda El Espejo, 8 km (by air) north of Corpozulia Campamento Carichuano,"
+37840	Trophis_racemosa	VE	Zulia	NA	11.07	-72.28	NA	"Distrito Mara: crossing of Caño Colorado with Caño Roblecito, near Fundo Caño Colorado, 6 km NNW of Corpozulia Campamento Carichuano,"
+37841	Tournefortia_maculata	VE	Zulia	NA	11.04	-72.28	NA	"Mara: undisturbed deciduous forest remnant on low hills, 4 km (by air) north of Corpozulia Campamento Carichuano."
+37842	Commelina_erecta	VE	Zulia	NA	11.07	-72.3	NA	"Distirto Mara: Cerro Cinco de Julio, lower eastern slopes along Caño Roblecito, 7 1/2 km northwest of Corpozulia Campamento Carichuano"
+37844	Cyperus_luzulae	VE	Zulia	NA	11.08	-72.25	NA	"Distrito Mera: wet grassy area by ford, south side of Río Guasare, E of El Carbon Estación Hidrometeorologica (M.O.P.), N of Hacienda El Espejo, 8 km (by air) N of Corpozulia Campamento Carichuano."
+37846	Solanum_schlechtendalianum	VE	Zulia	NA	11.02	-72.33	NA	"Cerro Los Manantiales, forest uppermost slopes and ridges, east of Rio Guasare, west of Hacienda Los Manantiales, on propery of Professor Morales, 12 km west of Corpozulia Campamento Carichuano."
+37847	Solanum_seaforthianum	VE	Zulia	NA	11	-72.29	NA	"Distrito mara; foret remnant, 3km (by air)WSW of Corpozulia Campento Carichuano"
+37850	Solanum_hazenii	VE	Zulia	NA	11.03	-72.33	NA	"Upland open slopes west of Hacienda La Sierra, towards Hacienda Los Manatiales, 7 km west of Corpozulia Campamento Carichuano."
+37852	NA_NA	VE	Zulia	NA	11	-72.28	NA	"Distrito Mara: forested hills, vicinity of experimental open pit coal mine, 1 km west of Corpozulia Campamento Carichuano."
+726245	NA_NA	EC	Esmeraldas	NA	1.2153	-78.7647	NA	"La Chiquita, 5m, 11km SE San Lorenzo de Esmeraldas, Esmeraldas Prov., Ecuador"
+726274	NA_NA	EC	Esmeraldas	NA	1.2153	-78.7647	NA	"La Chiquita, 5m, 11km SE San Lorenzo de Esmeraldas, Esmeraldas Prov., Ecuador"
+726289	NA_NA	EC	Esmeraldas	NA	1.2153	-78.7647	NA	"La Chiquita, 5m, 11km SE San Lorenzo de Esmeraldas, Esmeraldas Prov., Ecuador"
+726313	NA_NA	EC	ESMERALDAS	NA	1.05	-79	NA	"Río Cayapas, Cooperativa la Concordia, half an hour upstream from Borbón. Riverside forest."
+726315	NA_NA	EC	ESMERALDAS	NA	1	-78.8	NA	"Río Santiago, upstream from Rocafuerte. Rain forest."
+726316	NA_NA	EC	ESMERALDAS	NA	1.116	-79	NA	"Limones - Borbón, 5 km before Borbón. Riverside flooded forest."
+726317	NA_NA	EC	ESMERALDAS	NA	1.016	-78.916	NA	"Cerro de la Tunda, ca. 15 km E of Maldonado on the Río Santiago, half an hour upstreams from Borbon.  Primary forest"
+726318	NA_NA	EC	PICHINCHA	NA	1	-78.833	NA	"Carretera Quito - Puerto Quito, 47 km al este de Pedro Vicente Maldonado. Terrenos cultivados."
+726319	NA_NA	EC	ESMERALDAS	NA	1.05	-79	NA	"Río Cayapas, Cooperativa la Concordia, half an hour upstream from Borbón. Riverside forest."
+726320	NA_NA	EC	CARCHI	NA	1.033	-78.383	NA	Gualpí Alto area. Disturbed wet forest.
+726321	NA_NA	EC	ESMERALDAS	NA	1.05	-79	NA	"Río Cayapas, Cooperativa la Concordia, half an hour upstream from Borbón. Rain forest."
+726322	NA_NA	EC	ESMERALDAS	NA	1.05	-79	NA	"Río Cayapas, Cooperativa la Concordia, half an hour upstream from Borbón. Rain forest."
+726323	NA_NA	EC	ESMERALDAS	NA	1.05	-78.816	NA	Río Santiago at Concepción. Riverside forest.
+726324	NA_NA	EC	ESMERALDAS	NA	1.116	-79	NA	"Limones - Borbón, 5 km before Borbón. Riverside flooded forest."
+726325	NA_NA	EC	ESMERALDAS	NA	1.05	-79	NA	"Río Cayapas, Cooperativa la Concordia, half an hour upstream from Borbón. Rain forest."
+726326	NA_NA	EC	CARCHI	NA	1.033	-78.383	NA	Gualpí Alto area. Disturbed wet forest.
+726327	NA_NA	EC	PICHINCHA	NA	1	-78.833	NA	"Carretera Quito - Puerto Quito, 47 km al este de Pedro Vicente Maldonado. Terrenos cultivados."
+726328	NA_NA	EC	ESMERALDAS	NA	1.05	-78.833	NA	"Río Santiago at Concepción. Rain forest, dominated of palms, often inundated."
+726329	NA_NA	EC	ESMERALDAS	NA	1.05	-78.833	NA	"Río Santiago at Concepción. Rain forest, dominated of palms, often inundated."
+726330	NA_NA	EC	ESMERALDAS	NA	1	-78.8	NA	"Río Santiago, upstream from Rocafuerte. Rain forest."
+726331	NA_NA	EC	ESMERALDAS	NA	1.266	-78.833	NA	San Lorenzo. Around houses
+726332	NA_NA	EC	ESMERALDAS	NA	1.1	-78.983	NA	"Limones - Borbón, 10 km before Borbón. Pachira dominating riverside forest."
+726333	NA_NA	EC	ESMERALDAS	NA	1	-78.8	NA	"Río Santiago, upstream from Rocafuerte. Rain forest."
+726334	NA_NA	EC	CARCHI	NA	1.033	-78.383	NA	Gualpí Alto area. Disturbed wet forest.
+726335	NA_NA	EC	ESMERALDAS	NA	1.05	-78.816	NA	Río Santiago at Concepción. Riverside forest.
+726336	NA_NA	EC	Esmeraldas	NA	1.066	-78.65	NA	"Road Lita-San Lorenzo, km 46.7. Tall wet forest on undulating ground."
+726337	NA_NA	EC	ESMERALDAS	NA	1.05	-78.816	NA	Río Santiago at Concepción. Riverside forest.
+726338	NA_NA	EC	CARCHI	NA	1.033	-78.383	NA	Gualpí Alto area. Disturbed wet forest.
+726339	NA_NA	EC	CARCHI	NA	1.033	-78.383	NA	Gualpí Alto area. Disturbed wet forest.
+726340	NA_NA	EC	ESMERALDAS	NA	1.05	-78.833	NA	"Río Santiago at Concepción. Rain forest, dominated of palms, often inundated."
+726341	NA_NA	EC	CARCHI	NA	1.033	-78.383	NA	Ridge N of Gualpí Alto area. Disturbed wet forest.
+726342	NA_NA	EC	ESMERALDAS	NA	1.05	-79	NA	"Río Cayapas, Cooperativa la Concordia, half an hour upstream from Borbón. Rain forest."
+726343	NA_NA	EC	ESMERALDAS	NA	1	-78.8	NA	"Río Santiago, upstream from Rocafuerte. Rain forest."
+726344	NA_NA	EC	ESMERALDAS	NA	1.016	-78.816	NA	Río Santiago at Rocafuerte. Riverbed vegetation.
+726345	NA_NA	EC	CARCHI	NA	1.033	-78.383	NA	Gualpí Alto area. Disturbed wet forest.
+726346	NA_NA	EC	ESMERALDAS	NA	1.05	-78.833	NA	"Río Santiago at Concepción. Rain forest, dominated of palms, often inundated."
+726347	NA_NA	EC	CARCHI	NA	1.033	-78.383	NA	Gualpí Alto area. Disturbed wet forest.
+726348	NA_NA	EC	ESMERALDAS	NA	1.05	-78.833	NA	"Río Santiago at Concepción. Rain forest, dominated of palms, often inundated."
+726349	NA_NA	EC	ESMERALDAS	NA	1.05	-78.833	NA	"Río Santiago at Concepción. Rain forest, dominated of palms, often inundated."
+726350	NA_NA	EC	ESMERALDAS	NA	1.033	-78.816	NA	Río Santiago at Rocafuerte. Riverside forest.
+726351	NA_NA	EC	ESMERALDAS	NA	1.05	-79	NA	"Río Cayapas, Cooperativa la Concordia, half an hour upstream from Borbón. Rain forest."
+726352	NA_NA	EC	NA	NA	1.0166667	-78.816666	NA	"Small eastern tributary to Rio Huimbi, Rio Santiago drainage, about 2 km SSE of Rocafuerte on Pacific slope"
+726353	NA_NA	EC	Esmeraldas	NA	1.091667	-78.98333	NA	"Lower Rio Santiago, near village of Borbon, or in pools and marshes near river, prov. Esmeraldas; alt. under 10 m."
+726373	NA_NA	EC	Emeraldas	NA	1.288	-78.8	NA	San Lorenzo
+726374	NA_NA	EC	Emeraldas	NA	1.288	-78.8	NA	San Lorenzo
+726439	NA_NA	EC	CARCHI	NA	1.011446	-78.24238	NA	CHICAL
+726454	NA_NA	EC	Esmeraldas	NA	1.08	-78.67	NA	Along Río San Juan 0.7 km N of Lita-San Lorenzo Road.
+726455	NA_NA	EC	Esmeraldas	NA	1.08	-78.67	NA	Along Río San Juan 0.7 km N of Lita-San Lorenzo Road.
+726456	NA_NA	EC	Esmeraldas	NA	1.12	-78.62	NA	Further along trail to Río Mataje Awá encampment from Río Palaví   encampment. Mataje beginning at point left from previous day on top of hill  at 230 m
+726457	NA_NA	EC	Carchi	Tulcán	1	-78.4	NA	Parroquia Tobar Donoso. Sector Sabalera. Reserva Indígena Awá. Bosque primario Noreste Casa Comunal. Bosque muy húmedo premontano.
+922958	NA_NA	PE	Loreto	Maynas	-0.12	-75.25	NA	"1-5 km from Puerto Peru, military post 8 km from mouth of Río Gueppi, tributary of Río Putumayo, northern most tip of Peru on border with Ecuador. On trail to Río Napo, non-inundated lowland forest"
+922982	NA_NA	PE	Loreto	Maynas	-0.12	-75.25	NA	"1-2 km from Puerto Peru, military post 8 km from mouth of Río Gueppi, tributary of Río Putumayo, northern most tip of Peru on border with Ecuador. On trail to Río Napo, non-inundated lowland forest"
+923012	NA_NA	PE	Loreto	Maynas	-0.12	-75.25	NA	"1-5 km from Puerto Peru, military post 8 km from mouth of Río Gueppi, tributary of Río Putumayo, northern most tip of Peru on border with Ecuador. On trail to Río Napo, non-inundated lowland forest"
+923030	NA_NA	PE	Loreto	Maynas	-0.12	-75.25	NA	"1-2 km from Puerto Peru, military post 8 km from mouth of Río Gueppi, tributary of Río Putumayo, northern most tip of Peru on border with Ecuador. On trail to Río Napo, non-inundated lowland forest"
+923031	NA_NA	PE	Loreto	Maynas	-0.13	-75.27	NA	"Río Gueppi, tributary of Río Putumayo, northern most tip of Peru on border with Ecuador.  Riverside between mouth and Puerto Peru, border post 8 km upriver."
+923074	Schultzichthys_bondi	PE	NA	NA	-0.98944443	-75.309166	NA	"LO, MAYNAS, PV ARCADIA, R. NAPO"
+923075	Serrapinnus_heterodon	PE	NA	NA	-0.98944443	-75.309166	NA	"LO, MAYNAS, PV ARCADIA, R. NAPO, COCHA DE CONCHAS"
+923077	Steindachnerina_planiventris	PE	NA	NA	-0.8061111	-75.24	NA	"LO, MAYNAS, PV ARCADIA, R. AGUARICO"
+923078	Curimatopsis_macrolepis	PE	NA	NA	-0.98944443	-75.309166	NA	"LO, MAYNAS, PV ARCADIA, R. NAPO, COCHA DE CONCHAS"
+923082	Moenkhausia_dichroura	PE	NA	NA	-0.8061111	-75.24	NA	"LO, MAYNAS, PV CASTANA, R. AGUARICO"
+923084	Hemigrammus_ocellifer	PE	NA	NA	-0.8036111	-75.24	NA	"PERU: LORETO, MAYNAS, PV CASTANA, RIO AGUARICO MI., QBDA.CASTANA NEGRA."
+923086	Moenkhausia_dichroura	PE	NA	NA	-0.8061111	-75.24	NA	"LO, MAYNAS, PV CASTANA, R. AGUARICO"
+923087	Prochilodus_nigricans	PE	NA	NA	-0.98944443	-75.309166	NA	"LO, MAYNAS, PV ARCADIA, R. NAPO, COCHA DE CONCHAS"
+923088	Knodus_septentrionalis	PE	NA	NA	-0.8061111	-75.24	NA	"LO, MAYNAS, PV CASTANA, R. AGUARICO"
+923089	Knodus_septentrionalis	PE	NA	NA	-0.98944443	-75.309166	NA	"LO, MAYNAS, PV ARCADIA, R. NAPO"
+923090	Phenacogaster_pectinatus	PE	NA	NA	-0.8036111	-75.24	NA	"PERU: LORETO, MAYNAS, PV CASTANA, RIO AGUARICO MI., QBDA.CASTANA NEGRA."
+923091	Potamorhina_altamazonica	PE	NA	NA	-0.98944443	-75.309166	NA	"LO, MAYNAS, PV ARCADIA, R. NAPO, COCHA DE CONCHAS"
+923092	Aphyocharax_alburnus	PE	NA	NA	-0.8061111	-75.24	NA	"LO, MAYNAS, PV CASTANA, R. AGUARICO"
+923094	Moenkhausia_collettii	PE	NA	NA	-0.8036111	-75.24	NA	"PERU: LORETO, MAYNAS, PV CASTANA, RIO AGUARICO MI., QBDA.CASTANA NEGRA."
+923095	Hemigrammus_microstomus	PE	NA	NA	-0.98944443	-75.309166	NA	"LO, MAYNAS, PV ARCADIA, R. NAPO, COCHA DE CONCHAS"
+923096	Hyphessobrycon_copelandi	PE	NA	NA	-0.98944443	-75.309166	NA	"LO, MAYNAS, PV ARCADIA, R. NAPO, COCHA DE CONCHAS"
+923098	Hyphessobrycon_eques	PE	NA	NA	-0.8036111	-75.24	NA	"PERU: LORETO, MAYNAS, PV CASTANA, RIO AGUARICO MI., QBDA.CASTANA NEGRA."
+923099	Cyphocharax_spiluropsis	PE	NA	NA	-0.98944443	-75.309166	NA	"LO, MAYNAS, PV ARCADIA, R. NAPO, COCHA DE CONCHAS"
+923100	Aphyocharax_alburnus	PE	NA	NA	-0.8061111	-75.24	NA	"LO, MAYNAS, PV CASTANA, R. AGUARICO"
+923101	Psectrogaster_amazonica	PE	NA	NA	-0.98944443	-75.309166	NA	"LO, MAYNAS, PV ARCADIA, R. NAPO, COCHA DE CONCHAS"
+923102	Ctenobrycon_hauxwellianus	PE	NA	NA	-0.98944443	-75.309166	NA	"LO, MAYNAS, PV ARCADIA, R. NAPO, COCHA DE CONCHAS"
+923103	Steindachnerina_hypostoma	PE	NA	NA	-0.8061111	-75.24	NA	"LO, MAYNAS, PV CASTANA, R. AGUARICO"
+923104	Moenkhausia_collettii	PE	NA	NA	-0.98944443	-75.309166	NA	"LO, MAYNAS, PV ARCADIA, R. NAPO, COCHA DE CONCHAS"
+923105	Squaliforma_emarginata	PE	NA	NA	-0.8061111	-75.24	NA	"LO, MAYNAS, PV CASTANA, R. AGUARICO"
+923106	Steindachnerina_hypostoma	PE	NA	NA	-0.8061111	-75.24	NA	"LO, MAYNAS, PV CASTANA, R. AGUARICO"
+923107	Aphyocharax_alburnus	PE	NA	NA	-0.8061111	-75.24	NA	"LO, MAYNAS, PV CASTANA, R. AGUARICO"
+923108	Hyphessobrycon_loretoensis	PE	NA	NA	-0.8036111	-75.24	NA	"PERU: LORETO, MAYNAS, PV CASTANA, RIO AGUARICO MI., QBDA.CASTANA NEGRA."
+923109	Odontostilbe_fugitiva	PE	NA	NA	-0.8036111	-75.24	NA	"PERU: LORETO, MAYNAS, PV CASTANA, RIO AGUARICO MI., QBDA.CASTANA NEGRA."
+923110	Pimelodella_hasemani	PE	NA	NA	-0.8061111	-75.24	NA	"LO, MAYNAS, PV CASTANA, R. AGUARICO"
+923111	Squaliforma_emarginata	PE	NA	NA	-0.8061111	-75.24	NA	"LO, MAYNAS, PV CASTANA, R. AGUARICO"
+923112	Odontostilbe_fugitiva	PE	NA	NA	-0.98944443	-75.309166	NA	"LO, MAYNAS, PV ARCADIA, R. NAPO, COCHA DE CONCHAS"
+923113	Odontostilbe_fugitiva	PE	NA	NA	-0.8061111	-75.24	NA	"LO, MAYNAS, PV CASTANA, R. AGUARICO"
+923119	Hyphessobrycon_eques	PE	Loreto Region	NA	-0.8036111	-75.24	NA	"Peru: Loreto, Maynas, Pv Castana, Rio Aguarico mi., Qbda. Castana Negra."
+923120	Phenacogaster_pectinatus	PE	Loreto Region	NA	-0.8036111	-75.24	NA	"Peru: Loreto, Maynas, Pv Castana, Rio Aguarico mi., Qbda. Castana Negra."
+923122	Cyphocharax_spiluropsis	PE	NA	NA	-0.98944443	-75.309166	NA	"Lo, Maynas, Pv Arcadia, R. Napo, Cocha De Conchas"
+923123	Hemigrammus_ocellifer	PE	Loreto Region	NA	-0.8036111	-75.24	NA	"Peru: Loreto, Maynas, Pv Castana, Rio Aguarico mi., Qbda. Castana Negra."
+923124	Odontostilbe_fugitiva	PE	NA	NA	-0.8061111	-75.24	NA	"Lo, Maynas, Pv Castana, R. Aguarico"
+923125	NA_NA	PE	Loreto Region	NA	-0.8036111	-75.24	NA	"Peru: Loreto, Maynas, Pv Castana, Rio Aguarico mi., Qbda. Castana Negra."
+923127	Schultzichthys_bondi	PE	NA	NA	-0.98944443	-75.309166	NA	"Lo, Maynas, Pv Arcadia, R. Napo"
+923128	Moenkhausia_dichroura	PE	NA	NA	-0.8061111	-75.24	NA	"Lo, Maynas, Pv Castana, R. Aguarico"
+923129	Knodus_septentrionalis	PE	NA	NA	-0.8061111	-75.24	NA	"Lo, Maynas, Pv Castana, R. Aguarico"
+923130	Curimatopsis_macrolepis	PE	NA	NA	-0.98944443	-75.309166	NA	"Lo, Maynas, Pv Arcadia, R. Napo, Cocha De Conchas"
+923132	Potamorhina_altamazonica	PE	NA	NA	-0.98944443	-75.309166	NA	"Lo, Maynas, Pv Arcadia, R. Napo, Cocha De Conchas"
+923133	Hyphessobrycon_copelandi	PE	NA	NA	-0.98944443	-75.309166	NA	"Lo, Maynas, Pv Arcadia, R. Napo, Cocha De Conchas"
+923135	Moenkhausia_collettii	PE	Loreto Region	NA	-0.8036111	-75.24	NA	"Peru: Loreto, Maynas, Pv Castana, Rio Aguarico mi., Qbda. Castana Negra."
+70905	NA_NA	PA	Darién	NA	8.0256	-77.7556	NA	"Darién National Park, 80m, Pirre (Rancho Frío) Station, Darién Prov., Panama"
+70906	NA_NA	PA	Darién	NA	8.9	-77.8833	NA	"Mortí River, hydroelectric station, Darién Prov., Panama"
+70907	NA_NA	PA	Darién	NA	8.0256	-77.7556	NA	"Darién National Park, 90m, Pirre (Rancho Frío) Station, Pirre Mt., Darién Prov., Panama"
+70908	NA_NA	PA	Darién	NA	8.0256	-77.7556	NA	"Darién National Park, 80m, Pirre (Rancho Frío) Station, Darién Prov., Panama"
+70909	NA_NA	PA	Darién	NA	8.9	-77.8833	NA	"Mortí River, hydroelectric station, Darién Prov., Panama"
+70910	NA_NA	PA	Darién	NA	8.9	-77.8833	NA	"Mortí River, hydroelectric station, Darién Prov., Panama"
+70911	NA_NA	PA	Darién	NA	8.0256	-77.7556	NA	"Darién National Park, 80m, Pirre (Rancho Frío) Station, Pirre Mt., Darién Prov., Panama"
+70912	NA_NA	PA	Darién	NA	8.0256	-77.7556	NA	"Darién National Park, 90m, Pirre (Rancho Frío) Station, Pirre Mt., Darién Prov., Panama"
+70913	NA_NA	PA	Darién	NA	8.0256	-77.7556	NA	"Darién National Park, 90m, Pirre (Rancho Frío) Station, Darién Prov., Panama"
+70914	NA_NA	PA	Kuna Yala	NA	8.8167	-77.6833	NA	"Turdi River, Kuna Yala Comarca, Panama"
+70915	NA_NA	PA	Darién	NA	8.0256	-77.7556	NA	"Darién National Park, 90m, Pirre (Rancho Frío) Station, Pirre Mt., Darién Prov., Panama"
+70916	NA_NA	PA	Darién	NA	8.0256	-77.7556	NA	"Darién National Park, 80m, Pirre (Rancho Frío) Station, Darién Prov., Panama"
+70917	NA_NA	PA	Darién	NA	8.0256	-77.7556	NA	"Darién National Park, 90m, Pirre (Rancho Frío) Station, Pirre Mt., Darién Prov., Panama"
+70918	NA_NA	PA	Darién	NA	8.0256	-77.7556	NA	"Darién National Park, 90m, Pirre (Rancho Frío) Station, Darién Prov., Panama"
+70919	NA_NA	PA	Darién	NA	8.9	-77.8833	NA	"Mortí River, hydroelectric station, Darién Prov., Panama"
+70920	NA_NA	PA	Darién	NA	8.9	-77.8833	NA	"Mortí River, hydroelectric station, Darién Prov., Panama"
+70921	NA_NA	PA	Darién	NA	8.0256	-77.7556	NA	"Darién National Park, 90m, Pirre (Rancho Frío) Station, Darién Prov., Panama"
+70922	NA_NA	PA	Darién	NA	8.0256	-77.7556	NA	"Darién National Park, 90m, Pirre (Rancho Frío) Station, Pirre Mt., Darién Prov., Panama"
+70923	NA_NA	PA	Darién	NA	8.0256	-77.7556	NA	"Darién National Park, 90m, Pirre (Rancho Frío) Station, Pirre Mt., Darién Prov., Panama"
+70924	NA_NA	PA	Darién	NA	8.9	-77.8833	NA	"Mortí River, hydroelectric station, Darién Prov., Panama"
+70925	NA_NA	PA	Darién	NA	8.0256	-77.7556	NA	"Darién National Park, 90m, Pirre (Rancho Frío) Station, Pirre Mt., Darién Prov., Panama"
+70926	NA_NA	PA	Darién	NA	8.9	-77.8833	NA	"Mortí River, hydroelectric station, Darién Prov., Panama"
+70927	NA_NA	PA	Darién	NA	8.0256	-77.7556	NA	"Darién National Park, 80m, Pirre (Rancho Frío) Station, Darién Prov., Panama"
+70928	NA_NA	PA	Darién	NA	8.9	-77.8833	NA	"Mortí River, hydroelectric station, Darién Prov., Panama"
+70929	NA_NA	PA	Darién	NA	8.0256	-77.7556	NA	"Darién National Park, 80m, Pirre (Rancho Frío) Station, Darién Prov., Panama"
+70930	NA_NA	PA	Darién	NA	8.9	-77.8833	NA	"Mortí River, hydroelectric station, Darién Prov., Panama"
+70931	NA_NA	PA	Darién	NA	8.9	-77.8833	NA	"Mortí River, hydroelectric station, Darién Prov., Panama"
+70932	NA_NA	PA	Darién	NA	8.0256	-77.7556	NA	"Darién National Park, 80m, Pirre (Rancho Frío) Station, Darién Prov., Panama"
+70933	NA_NA	PA	Darién	NA	8.0256	-77.7556	NA	"Darién National Park, 80m, Pirre (Rancho Frío) Station, Darién Prov., Panama"
+70934	NA_NA	PA	Darién	NA	8.9	-77.8833	NA	"Mortí River, hydroelectric station, Darién Prov., Panama"
+70935	NA_NA	PA	Darién	NA	8.0256	-77.7556	NA	"Darién National Park, 80m, Pirre (Rancho Frío) Station, Darién Prov., Panama"
+70936	NA_NA	PA	Darién	NA	8.9	-77.8833	NA	"Mortí River, hydroelectric station, Darién Prov., Panama"
+70937	NA_NA	PA	Darién	NA	8.0256	-77.7556	NA	"Darién National Park, 80m, Pirre (Rancho Frío) Station, Pirre Mt., Darién Prov., Panama"
+70938	NA_NA	PA	Darién	NA	8.9	-77.8833	NA	"Mortí River, hydroelectric station, Darién Prov., Panama"
+70939	NA_NA	PA	Darién	NA	8.0256	-77.7556	NA	"Darién National Park, 80m, Pirre (Rancho Frío) Station, Darién Prov., Panama"
+70940	NA_NA	PA	Darién	NA	8.1333	-77.7167	NA	"along road in vic. of El Real de Santa Maria, Prov. de Darien, Panama"
+70941	NA_NA	PA	Darién	NA	8.0256	-77.7556	NA	"Darién National Park, 90m, Pirre (Rancho Frío) Station, Pirre Mt., Darién Prov., Panama"
+70942	NA_NA	PA	Darién	NA	8.9	-77.8833	NA	"Mortí River, hydroelectric station, Darién Prov., Panama"
+70943	NA_NA	PA	Darién	NA	8.1333	-77.7167	NA	"along road in vic. of El Real de Santa Maria, Prov. de Darien, Panama"
+70944	NA_NA	PA	Darién	NA	8.0256	-77.7556	NA	"Darién National Park, 90m, Pirre (Rancho Frío) Station, Pirre Mt., Darién Prov., Panama"
+70945	NA_NA	PA	Darién	NA	8.0256	-77.7556	NA	"Darién National Park, 80m, Pirre (Rancho Frío) Station, Pirre Mt., Darién Prov., Panama"
+70946	NA_NA	PA	Darién	NA	8.0256	-77.7556	NA	"Darién National Park, 80m, Pirre (Rancho Frío) Station, Darién Prov., Panama"
+70947	NA_NA	PA	Darién	NA	8.0256	-77.7556	NA	"Darién National Park, 90m, Pirre (Rancho Frío) Station, Pirre Mt., Darién Prov., Panama"
+70948	NA_NA	PA	Darién	NA	8.0256	-77.7556	NA	"Darién National Park, 80m, Pirre (Rancho Frío) Station, Darién Prov., Panama"
+70949	NA_NA	PA	Darién	NA	8.0256	-77.7556	NA	"Darién National Park, 90m, Pirre (Rancho Frío) Station, Darién Prov., Panama"
+70950	NA_NA	PA	Darién	NA	8.9	-77.8833	NA	"Mortí River, hydroelectric station, Darién Prov., Panama"
+70951	NA_NA	PA	Darién	NA	8.0256	-77.7556	NA	"Darién National Park, 90m, Pirre (Rancho Frío) Station, Pirre Mt., Darién Prov., Panama"
+70952	NA_NA	PA	NA	NA	8	-78	NA	"Panama, Pearl Islands"
+70953	NA_NA	PA	Darién	NA	8	-77.45	NA	Trail from Río Pucuro to Quebrada Maskia
+70954	NA_NA	PA	Darién	NA	8.17	-77.3	NA	Cerro Tacarcuna massif between summit camp on westernmost ridge and Pico Tacarcuna.
