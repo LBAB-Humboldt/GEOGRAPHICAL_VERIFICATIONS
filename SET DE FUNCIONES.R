@@ -79,7 +79,9 @@ registros=c(p0/p0*100,p2/p0*100,p3/p0*100,p4/p0*100,p5/p0*100, p6/p0*100,p7/p0*1
 names(registros)=c("Inicial","País","Departamen","Municipio","Urbano","Extremo_Altitud","Perfectos")
 
 barplot(registros, main="REGISTROS MANTENIDOS",axes=T,las=2,font.axis=3,cex.lab=1,ylab="%")
-tabla_resumen<<-registros
+registros=as.data.frame(registros)
+registros=cbind(No=c(p0,p2,p3,p4,p5,p6,p7),registros)
+tabla_resumen<<-as.data.frame(registros)
 
 
 # plotear ubicacion de los registros
@@ -100,7 +102,7 @@ plot(ubicacion[which(ubicacion$sugerencia_pais=="PA" & ubicacion$bienPais==1),],
 map(database = "world",add=T)
 legend("bottomleft",c("COLOMBIA","BRASIL","VENEZUELA","ECUADOR","PERU","PANAMA"), text.col =c("blue","green","black","yellow","grey","magenta"), fill="white")
 
-write.table(registros,"tabla_resumen.txt",sep ="\t",row.names=F) 
+write.csv(registros,"tabla_resumen.csv",row.names=T) 
 
 }
 
@@ -114,14 +116,15 @@ DESEMPEÑO=function(tabla_resumen){
   SET_PREVIO<<-winDialog("yesno", "¿TIENE UNA VERIFICACION PREVIA?")
   if (METRICA=="YES" & SET_PREVIO=="YES"){
     cat("SELECCIONES SU ARCHIVO DEL RESUMEN PREVIO= TABLA_RESUMEN.txt")
-    PREVIO<<-read.delim(file.choose(),h=T,stringsAsFactors=F,dec=".",encoding="UTF-8",sep ="\t")
+    PREVIO<<-read.csv(file.choose(),h=T,stringsAsFactors=F,dec=".",encoding="UTF-8")
     
   }
   
-  CONJUNTA=cbind(rownames(tabla_resumen),PREVIO, tabla_resumen)
-  barplot(t(CONJUNTA), beside = TRUE,main="REGISTROS MANTENIDOS",axes=T,las=2,font.axis=3,cex.lab=1,ylab="%",col=c("darkblue","red"))
-  RESTA=CONJUNTA[,2]-CONJUNTA[,1]
-  barplot(RESTA, main="% DE CAMBIO",axes=T,las=2,font.axis=3,cex.lab=1,ylab="%")
+  CONJUNTA=cbind(PREVIO, tabla_resumen[,c(2,3)])
+  barplot(t(CONJUNTA[,c(3,5)]), beside = TRUE,main=" % REGISTROS MANTENIDOS",axes=T,las=2,font.axis=3,cex.lab=1,ylab="%",col=c("darkblue","red"))
+  barplot(t(CONJUNTA[,c(2,4)]), beside = TRUE,main=" No REGISTROS MANTENIDOS",axes=T,las=2,font.axis=3,cex.lab=1,ylab="%",col=c("darkblue","red"))
+  RESTA=CONJUNTA[,4]-CONJUNTA[,2]
+  barplot(RESTA, main="CAMBIO EN No DE REGISTROS",axes=T,las=2,font.axis=3,cex.lab=1,ylab="Registros")
 
 }
 
@@ -240,6 +243,7 @@ VERIFICACION_PAISES=function (ruta_salida,set3,ALT,mundo,colombia,casco,mpios,mp
   
   bien_pais=overlay(ubicacion,paises)
   sugerencia_pais=paises@data$PAIS[bien_pais]
+  set5$bienPais=NA
   set5$bienPais[which(set5$pais==sugerencia_pais)]=1
   set5C=cbind(set5,sugerencia_pais)
   
@@ -319,7 +323,7 @@ VERIFICACION_PAISES=function (ruta_salida,set3,ALT,mundo,colombia,casco,mpios,mp
   filas=set6A$id[G[[1]]]
   bien_mun[filas,2]=1
   
-  set8=cbind(IGeom,bien_mun[,2],sugerencia_mun)
+  set8<<-cbind(IGeom,bien_mun[,2],sugerencia_mun)
   
   # # RURAL/URBANO ----------------------------------------------------------
   
@@ -349,8 +353,8 @@ VERIFICACION_PAISES=function (ruta_salida,set3,ALT,mundo,colombia,casco,mpios,mp
   
   select=cbind(set10$id,set10$nombre,celda)
   names(select)=c("id","nombre","celda")
-  duplicados=duplicated(select[-which(select$nombre=="NA_NA"),2:3])
-  unidos=as.data.frame(cbind(select[-which(select$nombre=="NA_NA"),c(1,3)],duplicados))
+  duplicados=duplicated(select[,2:3])
+  unidos=as.data.frame(cbind(select[,c(1,3)],duplicados))
   unidos$duplicados[which(unidos$duplicados==0)]=NA
   names(unidos)=c("id","celda","duplicados")
   set12=merge(set10,unidos,by="id",all=T)
@@ -366,16 +370,16 @@ VERIFICACION_PAISES=function (ruta_salida,set3,ALT,mundo,colombia,casco,mpios,mp
   coordinates(IGeoALT2)=~longitud+latitud1
   prealt=over(IGeoALT2,ALT)
   colnames(prealt)="alt"
-  set12$alt=prealt 
+  set12=cbind(set12,alt=prealt) 
   
   # inicia metodo para detectar outliers (modified z-score method) 
   listsp=unique(set12$nombre)
-  listsp[length(listsp)+1]="NA_NA"
+  if (length(which(listsp=="NA_NA"))==0) {listsp[length(listsp)+1]="NA_NA"}
+  
   #listsp=listsp[-which(listsp=="NA_NA"|is.na(listsp))]
   preset16<-NULL
   set16<-NULL
-  for (w in listsp) 
-  {
+  for (w in listsp){
     DAT=subset(set12,set12$nombre==w)
     DAT$extremo=NA
     v=as.matrix(DAT$alt)[,1]  
@@ -414,6 +418,7 @@ VERIFICACION_PAISES=function (ruta_salida,set3,ALT,mundo,colombia,casco,mpios,mp
   nombres[which(nombres=="bien_mun[, 2]")]="bien_muni"; nombres[which(nombres=="nombre")]="nombre_acept"
   names(preset16)=nombres
   
+  # pegar los NA
   set12NA_NA=set12[(setdiff(set12$id, preset16$id)),]
   set12NA_NA$extremo="NA"
   
@@ -438,7 +443,7 @@ VERIFICACION_PAISES=function (ruta_salida,set3,ALT,mundo,colombia,casco,mpios,mp
     casco_urbano<<-set16[which(is.na(set16$rural)),]
     duplicados<<-set16[which(set16$duplicados==1),]
     extremos_altura<<-set16[which(set16$extremo==1),]
-    pasa_todo<<-set16[which(set16$bienPais==1 & set16$bien_depto==1 & set16$bien_muni==1 & set16$rural==1 & is.na(set16$extremo)),]
+    pasa_todo<<-set16[which(set16$bienPais==1 & set16$bien_depto==1 & set16$bien_muni==1 & set16$rural==1),]
     write.table(nombre_no_valido,"nombre_no_valido.txt",sep ="\t",row.names=F)
   }
   if(IPT=="YES"){
@@ -462,7 +467,7 @@ VERIFICACION_PAISES=function (ruta_salida,set3,ALT,mundo,colombia,casco,mpios,mp
     pasa_todo<<-set16[which(set16$bienPais==1 & set16$bien_depto==1 & set16$bien_muni==1  & is.na(set16$extremo)),]
   }
   
-  p0=nrow(set3)
+  p0=nrow(set16)
   p1=nrow(set16[which(!is.na(set16$aceptadoCol)),]) 
   p2=nrow(set16[which(set16$bienPais==1),])
   p3<-nrow(set16[which(set16$bien_depto==1),]) 
