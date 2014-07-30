@@ -496,7 +496,7 @@ VERIFICACION_PAISES=function(ruta_salida,set3,ALT,mundo,colombia,casco,mpios,mpi
   coordinates(IGeoALT2)=~longitud+latitud1 #
   prealt=over(IGeoALT2,ALT) #
   colnames(prealt)="alt" #
-  set12$alt=prealt  #
+  set12$alt <- as.numeric(prealt[,1])  #
   rm(coordALT2)
   
   set12$sugerencia_pais <- capitalize(set12$sugerencia_pais)
@@ -529,38 +529,41 @@ VERIFICACION_PAISES=function(ruta_salida,set3,ALT,mundo,colombia,casco,mpios,mpi
     }
   
   preset16<-NULL #
-  w <- 1;listsp[w]
+  
+  w <- 1332;listsp[w]
   time.alt <- Sys.time()
- 
-  for (w in 1:length(listsp)) # 7002
+
+  altDATA <- cbind(set12[,c("id","nombre","alt")],"extremo" = 0) 
+  count <- 0
+  time.alt <- Sys.time()
+  for (w in 1:length(listsp)) # 
   {
     cat(w,"de",length(listsp), round((w/length(listsp))*100,2) ,"%",listsp[w])
-    DAT <- subset(set12,set12$nombre==listsp[w]); dim(DAT); cat (" -",nrow(DAT),"registros","\n")
-    DAT$extremo <- rep(NA,nrow(DAT))#debug
-    v <- as.matrix(DAT$alt)[,1]
-    v <- v[!is.na(v)]; length(v)
-    if (length(v)!=0){
-      s <- median(v,na.rm=T)
-      N <- length(v)
-      #m=c() # inicializa vector de datos |xi - xm | donde xm es la median de altura maxima
-      m <- abs(v-s) #debug add
+    pos <- which(altDATA$nombre==listsp[w])
+    DAT <- altDATA[pos,c("id","alt")]; cat (" -",nrow(DAT),"registros")#; dim(DAT)
+    v <- DAT[!is.na(DAT$alt),]#; nrow(v)
+    if (nrow(v)>0){
+      s <- median(v$alt,na.rm=T)
+      N <- length(v$alt)
+      m <- abs(v$alt-s) #debug add 
       MAD <- median(m, na.rm=T) # mediana de todos los datos |xi - xm | calculados
-      if (MAD>0) { 
-        pZ=cbind(1:N,abs(0.6745*(v-s)/MAD)) # formula para calculo de outliers segun 										   # el modified z-score method 
+      if (MAD > 0) { 
+        pZ <- cbind(v$id,abs(0.6745*(v$alt-s)/MAD)) # formula para calculo de outliers segun  # el modified z-score method
         Z <- which(pZ[,2]>3.5)
         if (length(Z)!=0){
-          DAT$extremo[-Z]=1} # 1 no es extremo
-        }  #end if MAD
-      #set15<-rbind(set15,preset15) # datos con valores extremos por altura maxima
-    }
-    preset16<-rbind(preset16,DAT) # datos sin valores extremos por altura maxima, listos para entrar al modelo
-  }   #end for w
+          posALT <- v$id[-Z]
+          altDATA$extremo[posALT] <- 1
+          count <- count + 1
+          cat(" - Extremo", count)
+        } # 1 no es extremo
+      }
+    }; cat("\n")
+  }
   
-  time.alt-Sys.time()
-  dim(preset16)
-  head(preset16)
-  
-  
+  Sys.time() - time.alt
+  preset16 <- cbind(set12,extremo = altDATA$extremo)
+  sum(!is.na(preset16$extremo))
+  summary(altDATA$extremo)
   preset16$extremo[which(is.na(preset16$alt))] <- "NA"
   nombres <- names(preset16)
   nombres[which(nombres=="bien_mun[, 2]")]="bien_muni"; nombres[which(nombres=="nombre")]="nombre_acept"
@@ -620,9 +623,10 @@ VERIFICACION_PAISES=function(ruta_salida,set3,ALT,mundo,colombia,casco,mpios,mpi
     head(set16)
     pasa_todo<<-set16[which(set16$bienPais==1 & set16$bien_depto==1 & set16$bien_muni==1 & set16$rural==1 & is.na(set16$extremo)),]
     quitar.columnas <- which(colnames(set16)%in%c("id","source","nombre","pais","departamento","municipio","latitud","longitud","fecha_inicial", "localidad","alt","nombre_acept", "Nombre"))      
-    set16 <<- cbind(set2[order(set2$ID)],set16[order(set16$id),-quitar.columnas])
+    set16 <<- cbind(set2[order(set2$ID),],set16[order(set16$id),-quitar.columnas])
     set16 <- cbind(set2[order(set2$ID),],set16[order(set16$id),-quitar.columnas])
     save(set16,file = paste0(ruta_salida,"/Registros_",as.Date(Sys.Date()),".RData"))
+    save(set16,file = paste0("W:/Ocurrencias/Registros_",as.Date(Sys.Date()),".RData"))
   }
   
 
