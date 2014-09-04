@@ -46,5 +46,5 @@ graficos()
 # ### 8. PARA GUARDAR LA TABLA GENERAL EN EXCEL ---------------------------
 write.xlsx(set16, "Fauna_2014-08-25_TABLA_GENERAL.xlsx", sheetName="Sheet1",col.names=TRUE, row.names=TRUE, append=FALSE)
 
-#### METRICAS DE DESEMPEÑO
-DESEMPEÑO(tabla_resumen)
+#### METRICAS DE DESEMPE?O
+DESEMPENO(tabla_resumen)
