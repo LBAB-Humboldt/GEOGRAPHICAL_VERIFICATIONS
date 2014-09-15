@@ -1,8 +1,6 @@
-#####-------------------------------------------##########
 #     CODIGO PARA LA VERIFICACION GEOGRAFICA            #
 #                                                       #
 #         version  reporte en tabla                     #
-#####-------------------------------------------##########
 
 
 ###Cargar los paquetes de R necesarios para correr el script
@@ -15,15 +13,15 @@ library(dismo)
 library(maptools)
 library(sp)
 library(maps)
-library("svDialogs")
-library("xlsx")
-library("xlsxjars")
-library("rJava")
+library(svDialogs)
+library(xlsx)
+library(xlsxjars)
+library(rJava)
 
 ##  2. CARGAR LAS FUNCIONES
 
 # Seleccionar ruta de las funciones
-ruta_funciones <- dlgDir(default = getwd(), title="ESPECIFIQUE LA RUTA DONDE ESTA EL ARCHIVO SET DE FUNCIONES.R")$res
+ruta_funciones <- dlgDir(default = getwd(), title= "ESPECIFIQUE LA RUTA DONDE ESTA EL ARCHIVO SET DE FUNCIONES.R")$res
 source(paste0(ruta_funciones,"/SET DE FUNCIONES.R"))
 
 # ### 3. DEFINIR RUTAS DE TRABAJO DE LOS ARCHIVOS -------------------------
@@ -38,7 +36,7 @@ info_geografica(ruta_info_geo)
 CARGAR_DATOS(ruta_datos)
 
 # # ##### 6. HACER LA VERIFICACION GEOGRAFICA  -------------------------------
-RESULTADOS <- VERIFICACION_PAISES(ruta_salida,set3,ALT,mundo,colombia,casco,mpios,mpios2003,mpios1993,mpios1985,mpios1973,mpios1964,id,paises)
+RESULTADOS <- VERIFICACION_PAISES(ruta_salida, set3, ALT, mundo, colombia, casco, mpios, mpios2003, mpios1993, mpios1985, mpios1973, mpios1964, id, paises)
 
 # ### 7. GENERAR GRAFICOS ----------------------------------------------------
 graficos()

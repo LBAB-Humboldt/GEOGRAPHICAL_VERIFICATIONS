@@ -1,11 +1,7 @@
-#####-------------------------------------------##########
 #     CODIGO PARA LA VERIFICACION GEOGRAFICA             #
 #                                                        #
 #               SET DE  FUNCIONES                        #
-#                   julio 2013
-# se introdujo insitutcion colector y fecha inicial, 
-#     para los datos que vienen de Taxonomica              
-#####-------------------------------------------##########
+#                 Septiembre 2014
 
 # ### FUNCIONES -----------------------------------------------------------
 ## definir rutas
@@ -23,8 +19,8 @@ library(R.utils)
 
 rutas<-function(){
   ruta_datos<<-(dlgDir(default = getwd(), title="ESPECIFIQUE LA RUTA DONDE ESTAN SUS DATOS")$res)
-  ruta_salida<<-(dlgDir(default = getwd(), title="ESPECIFIQUE LA RUTA DONDE DESEA SUS RESULTADOS")$res)                 
-  ruta_info_geo<<-(dlgDir(default = getwd(), title="RUTA DONDE ESTA LA INFORMACI?N GEOGR?FICA")$res)
+  ruta_salida<<-(dlgDir(default = ruta_datos, title="ESPECIFIQUE LA RUTA DONDE DESEA SUS RESULTADOS")$res)                 
+  ruta_info_geo<<-(dlgDir(default = ruta_salida, title="RUTA DONDE ESTA LA INFORMACI?N GEOGR?FICA")$res)
   }
 
 
@@ -48,10 +44,10 @@ info_geografica<-function(ruta_info_geo){
 CARGAR_DATOS <- function(ruta_datos){
   setwd(ruta_datos) ### definir el directorio donde estan loa archivos, OJO CAMBIAR SEGUN LA UBICACION DE LA BASE DE DATOS A USAR.
   ObjR <<- VT <<- MIO <<- IPT <<- "NO"
-  ObjR<<-winDialog("yesno", "DO YOUR DATA CAME FROM PREVIOUS .RData file?")
-  if (ObjR=="NO"){
-    MIO<<-winDialog("yesno", "IS YOUR OWN DATA?")
-    if (MIO=="NO"){
+  MIO<<-winDialog("yesno", "IS YOUR OWN DATA?")
+  if (MIO=="NO"){
+    ObjR<<-winDialog("yesno", "DO YOUR DATA CAME FROM PREVIOUS .RData file?")
+    if (ObjR=="NO"){
       VT<<-winDialog("yesno", "DO YOUR DATA CAME FROM PREVIOUS SCRIPT VERIFICACION TAXONOMICA?")
       if (VT=="NO"){
         IPT<<-winDialog("yesno", "DO YOUR DATA CAME FROM IPT or SIB or GBIF?")
@@ -145,37 +141,43 @@ DESEMPENO=function(tabla_resumen){
 }
 
 ### Revisar "overlay" de los registros con el "Shape" de departamento
-corroboracion_dep <- function(datos,mun){
+#datos <- IGeo; mun <- paises
+corroboracion_dep <- function(datos, mun){
   a <- Sys.time()
   cat("   i. Coordenadas",'\n')
   coordinates(datos)=~longitud+latitud1
   cat("   ii. Overlay",'\n')
   ovm <- overlay(datos, mun)
   cntrm <- as.character(mun@data$DPTOS[ovm])
+  if(length(which(!is.na(datos@data$departamento))) == 1){
+    tmp <- agrep(mun$DPTOS[ovm],datos$municipio, max = 1, value=F,ignore.case=T)
+    mmx <- c(1,1,1)[tmp]
+    nmx <- NA
+  }
   if(length(which(!is.na(datos@data$departamento)))>0){
-    (imx <- which(cntrm!=as.character(datos@data$departamento)| is.na(datos@data$departamento))) ## datos con diferente municipio
-    (jmx <- which(cntrm==as.character(datos@data$departamento))) ## datos con igual municipio
-    (diferente <- cbind(cntrm,as.character(datos@data$departamento))[imx,])
-    CompareDpto <- cbind(imx,diferente)
-    #(MunCorrecto <- cbind(cntrm,as.character(datos@data$municipio))[jm,])
+    (imx <-  which(gsub(" ", "", tolower(cntrm)) != gsub(" ", "",tolower(datos@data$departamento))| is.na(datos@data$departamento))) ## datos con diferente municipio
+    (jmx <-  which(gsub(" ", "", tolower(cntrm)) == gsub(" ", "",tolower(datos@data$departamento))))## datos con igual municipi
+    id.exa <- datos@data$id[jmx]
+    CompareDpto <- cbind(imx, cntrm[imx], datos@data$departamento[imx], datos@data$id[imx]); head(CompareDpto)
     ma1x <- NULL 
-    uniqueDpto <- unique(CompareDpto[,2]) # Saco valores ?nicos por municipio
-    (uniqueDpto <- uniqueDpto[!is.na(uniqueDpto)]) # Eliminos NA's de los municipios
+    uniqueDpto <- unique(CompareDpto[, 3]) # Saco valores ?nicos por municipio
+    (uniqueDpto <- uniqueDpto[!is.na(uniqueDpto) & uniqueDpto != ""]) # Eliminos NA's de los municipios
     cat("  iii. Ciclo \n")
-    i <- 1
+    i <- 19
     cat("  iii. Ciclo -", i,"de",length(uniqueDpto),"-",round(i/length(uniqueDpto),2)*100,"% \n")
     for (i in 1:length(uniqueDpto)){
-      (pos.mun <- which(CompareDpto[,2] == uniqueDpto[i]));(uniqueDpto[i])
-      (mun.i <- CompareDpto[pos.mun,3])
-      (tmp <- agrep(uniqueDpto[i],mun.i, max=4,value=F,ignore.case=T))
-      max <- cbind(CompareDpto[pos.mun,1],0)
+      (pos.mun <- which(CompareDpto[, 3] == uniqueDpto[i]));(uniqueDpto[i])
+      (mun.i <- CompareDpto[pos.mun, 2])
+      (tmp <- agrep(gsub(" ", "", uniqueDpto[i]), gsub(" ","",mun.i), max = 2, value=F, ignore.case=T))
+      max <- cbind(CompareDpto[pos.mun, 4], 0)
       max[tmp,2] <- 1
       ma1x <- rbind(ma1x,max)
     }
     kmx <- as.integer(ma1x[which(ma1x[,2]==0),1]) # municipio diferente
     lmx <- as.integer(ma1x[which(ma1x[,2]==1),1]) # municipio igual 
-    mmx <- sort(as.integer(c(jmx,lmx)))
-    nmx <- sort(c(imx,kmx))
+    
+    mmx <- sort(as.integer(c(id.exa,lmx))) # ID's correctos
+    nmx <- sort(c(imx,kmx)) # ID's incorrectos
   }else{
     mmx=rep(0,nrow(datos))
     nmx=rep(NA,nrow(datos))
@@ -205,7 +207,7 @@ corroboracion2=function(datos,mun){
     i <- 2
     for (i in 1:nrow(CompareMun)){
       cat("   iii. Ciclo -", i,"de",nrow(CompareMun),"-",round(i/nrow(CompareMun),2)*100,"% \n")
-      (tmp <- agrep(CompareMun[i,2],CompareMun[i,3], max=4,value=F,ignore.case=T))
+      (tmp <- agrep(CompareMun[i,2],CompareMun[i,3], max = 4,value = F,ignore.case=T))
       if (length(tmp)==0){tmp=0}
       ma<-c(CompareMun[i,1],tmp)
       ma1 <- rbind(ma1,ma)
@@ -225,45 +227,57 @@ corroboracion2=function(datos,mun){
   return(X)
 }
 
-corroboracion <- function(datos,mun){
-  (a <- Sys.time())  
+# datos <- IGeom; mun <- paises; layer.field <- "MPIOS"; data.field <- "municipio"
+# datos <- set6A; mun <- mpios1964
+corroboracion <- function(datos, mun, layer.field, data.field){
+  (a <- Sys.time())
   cat("    i. Coordenadas \n")
   coordinates(datos)=~longitud+latitud1
   cat("   ii. Overlay \n")
-  ovm <- overlay(datos,mun)#;  str(ovm2)
-  (cntrm <- as.character(mun@data$MPIOS[ovm]))
-  
-  if(length(which(!is.na(datos@data$municipio)))==1){
-    tmp <- agrep(mun$MPIOS[ovm],datos$municipio, max=4,value=F,ignore.case=T)
+  ovm <- overlay(datos, mun)#;  str(ovm)
+  assign("cntrm", eval(parse(text = paste0("as.character(mun@data$",layer.field,"[ovm])"))))
+  assign("l", eval(parse(text = paste0("length(which(!is.na(datos@data$",data.field,")))"))))
+  if(l==1){
+    assign("tmp", eval(parse(text = paste0("agrep(mun$",layer.field,"[ovm], datos$",data.field,", max = 1, value=F, ignore.case=T)"))))
     mmx <- c(1,1,1)[tmp]
     nmx <- NA
-  } else if(length(which(!is.na(datos@data$municipio)))>0){
-    (imx <- which(cntrm!=as.character(datos@data$municipio)| is.na(datos@data$municipio))) ## datos con diferente municipio
-    (jmx <- which(cntrm==as.character(datos@data$municipio))) ## datos con igual municipio
-    (diferente <- cbind(cntrm,as.character(datos@data$municipio))[imx,])
-    (CompareMun <- cbind(imx,diferente))
-    ma1x <- NULL 
-    uniqueMun <- unique(CompareMun[,2]) # Saco valores unicos por municipio
-    (uniqueMun <- uniqueMun[!is.na(uniqueMun)]) # Eliminos NA's de los municipios
-    cat("  iii. Ciclo \n")
-    i <- 1
-    cat("  iii. Ciclo -", i,"de",length(uniqueMun),"-",round(i/length(uniqueMun),2)*100,"% \n")
-    for (i in 1:length(uniqueMun)){
-      (pos.mun <- which(CompareMun[,2] == uniqueMun[i]));(uniqueMun[i])
-      (mun.i <- CompareMun[pos.mun,3])
-      (tmp <- agrep(uniqueMun[i],mun.i, max=4,value=F,ignore.case=T))
-      (max <- cbind(CompareMun[pos.mun,1],0))
-      (max[tmp,2] <- 1)
-      (ma1x <- rbind(ma1x,max))
+  } else if(l>0){
+    assign("jmx", eval(parse(text = paste0("which(gsub(' ', '', tolower(cntrm)) == gsub(' ', '', tolower(datos@data$",data.field,")))")))) ## datos con igual municipio
+    assign("imx", eval(parse(text = paste0("which(gsub(' ', '', tolower(cntrm)) != gsub(' ', '', tolower(datos@data$",data.field,")))")))) ## datos con diferente municipi
+    na.mx <- which(is.na(cntrm))
+    id.exa <- datos@data$id[jmx] # ID's de las filas exactas 
+      
+    CompareMun <- cbind(imx, cntrm[imx], datos@data$municipio[imx], datos@data$id[imx]); head(CompareMun)
+    assign("CompareMun", eval(parse(text = paste0("cbind(imx, cntrm[imx], datos@data$", data.field,"[imx], datos@data$id[imx])")))) 
+
+    uniqueMun <- (sort(unique(CompareMun[, 3]))) # Saco valores unicos por municipio reportados en tabla
+    (uniqueMun <- uniqueMun[which(!is.na(uniqueMun) & uniqueMun != "")]) # Eliminos NA's de los municipios
+    mmx <- c(0, 0)
+    nmx <- c(0, 0)
+    if (length(uniqueMun)>0){      
+      cat("  iii. Ciclo \n")
+      i <- 25
+      ma1x <- NULL
+      cat("  iii. Ciclo -", i,"de",length(uniqueMun),"-",round(i/length(uniqueMun),2)*100,"% \n")
+      for (i in 1:length(uniqueMun)){
+        (uniqueMun[i])
+        (pos.mun <- which(CompareMun[, 3] == uniqueMun[i])) # Selecciono posiciones que cotienen al municipio i del over
+        (mun.i <- CompareMun[pos.mun, 2]) # selecciono municipios de tabla para el municipio de tabla i
+        (tmp <- agrep(gsub(" ", "", uniqueMun[i]), gsub(" ", "",mun.i), max = 2, value=F, ignore.case=T)) #Comparo similitud entre municipios reportados en tabla y extraidos con coordenada
+        (max <- cbind(as.integer(CompareMun[pos.mun, 4]), 0)) # Genero tabla con resultados
+        (max[tmp, 2] <- 1) #Asigno 1 para los que esten bien
+        (ma1x <- rbind(ma1x,max))
+      }
+      cat("  iii. Ciclo -", i,"de",length(uniqueMun),"-",round(i/length(uniqueMun),2)*100,"% \n") 
+      lmx <- ma1x[which(ma1x[,2]==1),1] # municipio igual. Extraigo posiciones de tabla original con municipios reconocidos validos 
+      mmx <- sort(as.integer(c(id.exa, lmx))) # Filas de la tabla con datos validados positivamente
+      
+      kmx <- ma1x[which(ma1x[,2]==0),1] # municipio diferente. 
+      nmx <- sort(c(imx,kmx, na.mx))
     }
-    cat("  iii. Ciclo -", i,"de",length(uniqueMun),"-",round(i/length(uniqueMun),2)*100,"% \n")
-    kmx <- as.integer(ma1x[which(ma1x[,2]==0),1]) # municipio diferente
-    lmx <- as.integer(ma1x[which(ma1x[,2]==1),1]) # municipio igual 
-    mmx <- sort(as.integer(c(jmx,lmx)))
-    nmx <- sort(c(imx,kmx))
   }else{
-    mmx=rep(0,nrow(datos))
-    nmx=rep(NA,nrow(datos))
+    mmx <- rep(0, nrow(datos))
+    nmx <- rep(NA, nrow(datos))
   }
   Xx <- list()
   Xx[[1]] <- mmx
@@ -275,45 +289,45 @@ corroboracion <- function(datos,mun){
 
 VERIFICACION_PAISES=function(ruta_salida,set3,ALT,mundo,colombia,casco,mpios,mpios2003,mpios1993,mpios1985,mpios1973,mpios1964,id,paises){
   setwd(ruta_salida) ### definir el directorio donde se guardaran los archivos
+  set3$latitud <- as.numeric(set3$latitud)
+  set3$longitud <- as.numeric(set3$longitud)
+  set3$municipio <- iconv(set3$municipio)
+  set3$departamento <- iconv(set3$departamento)
+  set3$localidad <- iconv(set3$localidad)
   dim(set3)
   # NO LATITUD
   
-  if (ObjR=="YES"){
-    cat("  1. Evaluando registros registros con coordenadas (1 de 11)", "\n")
-    print((Sys.time()))}
-  set3[nrow(set3)+1,]=NA #
+  cat("  1. Evaluando registros registros con coordenadas (1 de 11)", "\n")
+  
   set3$latitud1<-set3$latitud#  
-  lat=set3$latitud1#
+  lat <- set3$latitud1#
   (p0 <- nrow(set3))
   
-  row.without.lat=which(is.na(lat)) # filas sin latitud #
-  conlat=rep(NA,length(lat))
-  conlat[-row.without.lat]=1 #Vector resultados #
-  set3conlat=cbind(set3,conlat)  # pega vector a tabla #
+  row.without.lat <- which(!is.na(lat)) # filas sin latitud #
+  conlat <- rep(NA,length(lat))
+  conlat[row.without.lat] <- 1 #Vector resultados #
+  set3conlat <- cbind(set3,conlat)  # pega vector a tabla #
   
   rm(lat,row.without.lat)
+  
   # NO LONGITUD
-  set3conlat[nrow(set3conlat)+1,]=NA #
-  row.without.lon=which(is.na(set3conlat$longitud)) ## filas sin longitud #
-  conlon=rep(NA,nrow(set3conlat))
-  conlon[-row.without.lon]=1 #Vector resultados #
-  set5Coord=cbind(set3conlat,conlon) # pega vector a tabla #
-  set5<-set5Coord[-which(is.na(set5Coord$conlon) | is.na(set5Coord$conlat)),] #
+  row.without.lon <- which(!is.na(set3conlat$longitud)) ## filas sin longitud #
+  conlon <- rep(NA,nrow(set3conlat))
+  conlon[row.without.lon] <- 1 #Vector resultados #
+  set5Coord <- cbind(set3conlat,conlon) # pega vector a tabla #
+  set5 <- set5Coord[- which(is.na(set5Coord$conlon) | is.na(set5Coord$conlat)),] #
 
-  p0 <- nrow(set3)
   rm(set3conlat, row.without.lon, conlat, conlon)
   
   # ### 6. CONCORDANCIA PAISES -------------------------------------------  
-  if (ObjR=="YES"){
-    cat("  2. Evaluando concordancia del pais (2 de 11)", "\n")
-    print((Sys.time()))}
+  cat("  2. Evaluando concordancia del pais (2 de 11)", "\n")
   
-  ubicacion=set5 # 
+  ubicacion <- set5 # 
   coordinates(ubicacion)=~longitud+latitud #
   ubicacion <<- ubicacion
   ##evaluar otros paises
   
-  bien_pais <- overlay(ubicacion,paises)# 10 minutos
+  bien_pais <- overlay(ubicacion, paises)# 10 minutos
   sugerencia_pais <- as.character(paises@data$PAIS[bien_pais])#
   sugerencia_pais2 <- as.character(paises@data$NAME_0[bien_pais])
   sugerencia_paises <- cbind(unique(sugerencia_pais), unique(sugerencia_pais2))
@@ -324,40 +338,43 @@ VERIFICACION_PAISES=function(ruta_salida,set3,ALT,mundo,colombia,casco,mpios,mpi
     set5$bienPais[grep(sugerencia_paises[p,1],set5$pais)] <- 1    
     set5$bienPais[which(set5$pais == sugerencia_paises[p,2])] <- 1
   }
+  
   set5$bienPais[which(set5$pais == sugerencia_pais)] <- 1#
 
-  set5C=cbind(set5,sugerencia_pais)#
-  #length(which(set5$pais == sugerencia_pais)); length(set5$pais)#
+  set5C <- cbind(set5,sugerencia_pais)#
+  
   ubicacion<<-set5C #
   ubicacion <- set5C # debug add
+  
   rm(bien_pais)
+  
   coordinates(ubicacion)<-~longitud+latitud1 # debug
   
   # ##### 7. CONSISTENCIA GEOGR?FICA DEPARTAMENTOS MUNICIPIOS--------------------------------------
   #  DEPARTAMENTOS------
-  if (ObjR=="YES"){
-    cat("  3. Evaluando concordancia de departamentos (3 de 11)", "\n")
-    print((Sys.time()))}
+  cat("  3. Evaluando concordancia de departamentos (3 de 11)", "\n")
   
   IGeo <- set5C #
-  DEP <- corroboracion_dep(IGeo,paises) #12 seg
-  bien_depto <- rep(NA, nrow(IGeo)); bien_depto[DEP[[1]]] <- 1 #
+  DEP <- corroboracion(IGeo, paises, "DPTOS", "departamento") #12 seg
+  bien_depto <- rep(NA, nrow(IGeo))
+  bien_depto[IGeo[, 1] %in% DEP[[1]]] <- 1 #
   sugerencia_depto <- DEP[[3]] #
-  set6 <- cbind(IGeo,bien_depto,sugerencia_depto) #
+  set6 <- cbind(IGeo, bien_depto, sugerencia_depto) #
+
   ## ----MUNICIPIOS------
   
   ### Revisar "overlay" de los registros con el "Shape" de municipio
   
   #Corroboracion municipios todos los paises
   IGeom <- set6 #
-  A <- corroboracion(IGeom,paises) #
-  bien_mun=rep(NA,nrow(IGeo)) 
+  A <- corroboracion(IGeom, paises, "MPIOS", "municipio")   
+  bien_mun <- cbind(set6$id, rep(NA, nrow(IGeo)), "Mapa" = rep(NA, nrow(IGeo))) # 
+  bien_mun[bien_mun[, 1] %in% A[[1]], 2] <- 1 #
+  bien_mun[bien_mun[, 1] %in% A[[1]], 3] <- "Suramerica" #
   
-  bien_mun[A[[1]]]=1 #
-  bien_mun=cbind(set6$id,bien_mun) #
-  sugerencia_mun=A[[3]] #
+  sugerencia_mun <- A[[3]] # 
 
-  rm(DEP,bien_depto,sugerencia_depto,set5C,set5)
+  rm(DEP,bien_depto,sugerencia_depto, set5C, set5)
   rm(A, IGeo)
   
   ##CORROBORACION CON MUNICIPIOS DE 1964
@@ -366,17 +383,14 @@ VERIFICACION_PAISES=function(ruta_salida,set3,ALT,mundo,colombia,casco,mpios,mpi
     cat("  4. Evaluando concordancia de municipios (1964) (4 de 11)", "\n")
     cat("     ",as.character(Sys.time()),"\n")}
 
-  set6col=subset(set6,set6$sugerencia_pais=="CO") #
   #selcciona los que no han pasado
-  select=bien_mun[which(is.na(bien_mun[,2])),1] #
-  set6A=set6col[which(set6col$id %in% select),] #
-  # corroborar
-  B <- corroboracion(set6A,mpios1964) #
-  # Selecionar filas de los que pasaron
-  #filas=set6A$id[B[[1]]] #
-  # Rellenar con 1 los que pasaron 
-  #bien_mun[bien_mun[,2]%in%filas,2]=1 #
-  bien_mun[B[[1]],2] <- 1
+  set6col <- subset(set6,set6$sugerencia_pais=="CO") #
+  select <- bien_mun[which(is.na(bien_mun[,2])),1] #
+  set6A <- set6col[which(set6col$id %in% select),] #
+
+  B <- corroboracion(set6A, mpios1964, "MPIOS", "municipio") #
+  bien_mun[bien_mun[, 1] %in% B[[1]], 2] <- 1
+  bien_mun[bien_mun[, 1] %in% B[[1]], 3] <- 1964  
   
   rm(B)
   
@@ -386,10 +400,12 @@ VERIFICACION_PAISES=function(ruta_salida,set3,ALT,mundo,colombia,casco,mpios,mpi
     cat("  5. Evaluando concordancia de municipios (1973) (5 de 11)", "\n")
     cat("     ",as.character(Sys.time()),"\n")}
   
-  select=bien_mun[which(is.na(bien_mun[,2])),1] #
-  set6A=set6col[which(set6col$id%in% select),] #
-  C=corroboracion(set6A,mpios1973)#
-  bien_mun[C[[1]], 2] <- 1
+  select <- bien_mun[which(is.na(bien_mun[,2])),1] #
+  set6A <- set6col[which(set6col$id%in% select),] #
+  C <- corroboracion(set6A, mpios1973, "MPIOS", "municipio")#
+  bien_mun[bien_mun[, 1] %in% C[[1]], 2] <- 1
+  bien_mun[bien_mun[, 1] %in% C[[1]], 3] <- 1973
+  
   rm(C,set6col)
   
   ##CORROBORACION CON MUNICIPIOS DE 1985
@@ -398,10 +414,12 @@ VERIFICACION_PAISES=function(ruta_salida,set3,ALT,mundo,colombia,casco,mpios,mpi
     cat("  6. Evaluando concordancia de municipios (1985) (6 de 11)", "\n")
     cat("     ",as.character(Sys.time()),"\n")}
   
-  select=which(is.na(bien_mun[,2]))#
-  set6A=IGeom[select,]#
-  D=corroboracion(set6A,mpios1985)#
-  bien_mun[D[[1]], 2]=1
+  select <- which(is.na(bien_mun[,2]))#
+  set6A <- IGeom[select,]#
+  D <- corroboracion(set6A, mpios1985, "MPIOS", "municipio")#
+  bien_mun[bien_mun[, 1] %in% D[[1]], 2] <- 1
+  bien_mun[bien_mun[, 1] %in% D[[1]], 3] <- 1985
+  
   rm(D)
   
   ##CORROBORACION CON MUNICIPIOS DE 1993
@@ -409,10 +427,12 @@ VERIFICACION_PAISES=function(ruta_salida,set3,ALT,mundo,colombia,casco,mpios,mpi
     cat("  7. Evaluando concordancia de municipios (1993) (7 de 11)", "\n")
     cat("     ",as.character(Sys.time()),"\n")}
   
-  select=which(is.na(bien_mun[,2]))#
-  set6A=IGeom[select,]#
-  E=corroboracion(set6A,mpios1993)#
-  bien_mun[E[[1]], 2]=1
+  select <- which(is.na(bien_mun[,2]))#
+  set6A <- IGeom[select,]#
+  E <- corroboracion(set6A, mpios1993, "MPIOS", "municipio")#
+  bien_mun[bien_mun[, 1] %in% E[[1]], 2] <- 1
+  bien_mun[bien_mun[, 1] %in% E[[1]], 3] <- 1993
+  
   rm(E)
   
   ##CORROBORACION CON MUNICIPIOS DE 2003
@@ -421,9 +441,11 @@ VERIFICACION_PAISES=function(ruta_salida,set3,ALT,mundo,colombia,casco,mpios,mpi
     cat("     ",as.character(Sys.time()),"\n")}
   
   select=which(is.na(bien_mun[,2])) #
-  set6A=IGeom[select,] #
-  G=corroboracion(set6A,mpios2003) # 76'
-  bien_mun[G[[1]], 2]=1
+  set6A <- IGeom[select,] #
+  G <- corroboracion(set6A, mpios2003, "MPIOS", "municipio") # 76'
+  bien_mun[bien_mun[, 1] %in% G[[1]], 2] <- 1
+  bien_mun[bien_mun[, 1] %in% G[[1]], 3] <- 2003
+  
   rm(G,set6, set6A)
   
   set8 <- cbind(IGeom, "bien_muni" = bien_mun[,2], sugerencia_mun) #
@@ -447,25 +469,28 @@ VERIFICACION_PAISES=function(ruta_salida,set3,ALT,mundo,colombia,casco,mpios,mpi
   rural <- rep("NA",nrow(set8))  #
   rural[which(is.na(en_casco))]=1 #
   
-#   over_mar=overlay(mr,mar) #
-#   en_mar <- rep("NA",nrow(set8))  #
-#   en_mar[which(!is.na(en_mar))]=1 #
+  if (ObjR=="NO"){
+    over_mar=overlay(mr,mar) #
+    en_mar <- which(!is.na(over_mar))
+    en_col <- which(set8$pais == "CO" | gsub(" ", "", tolower(set8$pais)) == "colombia")
+    set8$bienPais[en_mar[en_mar%in%en_col]] <- 1  
+  }
   
-
   set10 <- cbind(set8,rural) #
   rm(rural,set8,en_casco)
   # #### 8. DUPLICADOS GEOGRAFICOS  -----------------------------------------
   
   if (ObjR=="YES"){
     cat("  10. Evaluando duplicados (10 de 11)", "\n")
-    cat("     ",as.character(Sys.time()),"\n")}
+    cat("     ",as.character(Sys.time()),"\n")
+  }
   
   Igeodup <- set10  #
   coordinates(Igeodup)=~longitud+latitud1 #
   
   celda <- over(Igeodup,id) #
   
-  select <- cbind(set10$id, set10$nombre,celda) #
+  select <- cbind(set10$id, set10$nombre, celda) #
   names(select) <- c("id", "nombre", "celda") #
   duplicados <- duplicated(select[-which(select$nombre=="NA_NA"),2:3]) #
   unidos <- as.data.frame(cbind(select[-which(select$nombre=="NA_NA"), c(1, 3)], duplicados)) #
@@ -483,17 +508,15 @@ VERIFICACION_PAISES=function(ruta_salida,set3,ALT,mundo,colombia,casco,mpios,mpi
     cat("     ",as.character(Sys.time()),"\n")
   }
   
-  IGeoALT2=set12 #
-  coordALT2=cbind(IGeoALT2$longitud,IGeoALT2$latitud1) #
+  IGeoALT2 <- set12 #
+  coordALT2 <- cbind(IGeoALT2$longitud,IGeoALT2$latitud1) #
   coordinates(IGeoALT2)=~longitud+latitud1 #
-  prealt=over(IGeoALT2,ALT) #
-  colnames(prealt)="alt" #
+  prealt <-over(IGeoALT2,ALT) #
+  colnames(prealt) <- "alt" #
   set12$alt <- as.numeric(prealt[,1])  #
   rm(coordALT2)
   
-  set12$sugerencia_pais <- capitalize(set12$sugerencia_pais)
-  set12$sugerencia_depto <- capitalize(set12$sugerencia_depto)
-  set12$sugerencia_mun <- capitalize(set12$sugerencia_mun)
+ 
   
   
   # inicia metodo para detectar outliers (modified z-score method) 
@@ -503,26 +526,24 @@ VERIFICACION_PAISES=function(ruta_salida,set3,ALT,mundo,colombia,casco,mpios,mpi
   preset16<-NULL #
   time.alt <- Sys.time()
 
-  altDATA <- cbind(set12[,c("id","nombre","alt")],"extremo" = 0) 
+  altDATA <- cbind(set12[,c("id","nombre","alt")],"extremo" = NA) 
   count <- 0
   time.alt <- Sys.time()
   for (w in 1:length(listsp)) # 
   {
     cat(w,"de",length(listsp), round((w/length(listsp))*100,2) ,"%",listsp[w])
-    pos <- which(altDATA$nombre==listsp[w])
-    DAT <- altDATA[pos,c("id","alt")]; cat (" -",nrow(DAT),"registros")#; dim(DAT)
-    v <- DAT[!is.na(DAT$alt),]#; nrow(v)
+    pos <- which(altDATA$nombre==listsp[w] & !is.na(altDATA$alt))
+    v <- altDATA[pos,c("id","alt")]; cat (" -",nrow(v),"registros")#; dim(DAT)
     if (nrow(v)>0){
       s <- median(v$alt,na.rm=T)
       N <- length(v$alt)
       m <- abs(v$alt-s) #debug add 
       MAD <- median(m, na.rm=T) # mediana de todos los datos |xi - xm | calculados
       if (MAD > 0) { 
-        pZ <- cbind(v$id,abs(0.6745*(v$alt-s)/MAD)) # formula para calculo de outliers segun  # el modified z-score method
-        Z <- which(pZ[,2]>3.5)
+        pZ <- cbind(v$id, abs(0.6745*(v$alt-s)/MAD)) # formula para calculo de outliers segun  # el modified z-score method
+        Z <- which(pZ[, 2]>3.5)
         if (length(Z)!=0){
-          posALT <- v$id[-Z]
-          altDATA$extremo[posALT] <- 1
+          altDATA$extremo[pos[-Z]] <- 1
           count <- count + 1
           cat(" - Extremo", count)
         } # 1 no es extremo
@@ -532,13 +553,13 @@ VERIFICACION_PAISES=function(ruta_salida,set3,ALT,mundo,colombia,casco,mpios,mpi
   
   Sys.time() - time.alt
   preset16 <- cbind(set12,extremo = altDATA$extremo)
-  #sum(!is.na(preset16$extremo))
-  #summary(altDATA$extremo)
-  preset16$extremo[which(is.na(preset16$alt))] <- "NA"
   
   set16 <- preset16[order(preset16$id),]
   p16 <- dim(set16)[1]
   
+  set16$sugerencia_pais <- capitalize(set16$sugerencia_pais)
+  set16$sugerencia_depto <- capitalize(set16$sugerencia_depto)
+  set16$sugerencia_mun <- capitalize(set16$sugerencia_mun)
   # ####10.  PREPARAR SETS DE DATOS PARA CORRECCION  ----------------------------
   if (ObjR=="YES"){
     cat("  12. Escribiendo datos", "\n")
@@ -584,6 +605,7 @@ VERIFICACION_PAISES=function(ruta_salida,set3,ALT,mundo,colombia,casco,mpios,mpi
     save(set16,file = paste0(ruta_salida,"/Registros_",as.Date(Sys.Date()),".RData"))
     save(set16,file = paste0("W:/Ocurrencias/Registros_",as.Date(Sys.Date()),".RData"))
   }
+  cat("\n \n \n  Fin del codigo \n")
   
 
   (p1 <- nrow(set16[which(!is.na(set16$nombre)),]))
@@ -622,6 +644,7 @@ VERIFICACION_PAISES=function(ruta_salida,set3,ALT,mundo,colombia,casco,mpios,mpi
     write.table(extremos_altura,"extremos_altura.txt",sep ="\t",row.names=F)
     write.table(set16,"TABLA_GENERAL.txt",sep ="\t",row.names=F)
     write.table(pasa_todo,"PERFECTOS.txt",sep ="\t",row.names=F)
+    write.table(merge(set3, set16[,-c(2:10)], by = "id", all.x = T), "TABLA_COMPLETA.txt", sep ="\t", row.names=F)
   }
 
   set16<<-set16
@@ -639,7 +662,6 @@ VERIFICACION_PAISES=function(ruta_salida,set3,ALT,mundo,colombia,casco,mpios,mpi
   J[[11]]=ubicacion
   
  
-  colnames(set16);  dim(set16)
   return(J)
 
   cat("\n \n \n  Fin del codigo \n")
