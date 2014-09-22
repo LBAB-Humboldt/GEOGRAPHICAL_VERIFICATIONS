@@ -1,7 +1,7 @@
 #     CODIGO PARA LA VERIFICACION GEOGRAFICA            #
 #                                                       #
 #         version  reporte en tabla                     #
-
+#-------------------------------------------------------#
 
 ###Cargar los paquetes de R necesarios para correr el script
 rm(list = ls())  # Borra  todo lo que este en memoria
@@ -42,7 +42,7 @@ RESULTADOS <- VERIFICACION_PAISES(ruta_salida, set3, ALT, mundo, colombia, casco
 graficos()
 
 # ### 8. PARA GUARDAR LA TABLA GENERAL EN EXCEL ---------------------------
-write.xlsx(set16, "Fauna_2014-08-25_TABLA_GENERAL.xlsx", sheetName="Sheet1",col.names=TRUE, row.names=TRUE, append=FALSE)
+write.xlsx(set16, "TABLA_GENERAL.xlsx", sheetName = "Sheet1", col.names = TRUE, row.names = TRUE, append = FALSE)
 
 #### METRICAS DE DESEMPE?O
 DESEMPENO(tabla_resumen)

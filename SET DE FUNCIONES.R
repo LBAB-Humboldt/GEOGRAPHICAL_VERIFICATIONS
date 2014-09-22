@@ -37,7 +37,7 @@ info_geografica<-function(ruta_info_geo){
   mpios1964<<-readShapePoly("mun_1964.shp",delete_null_obj=TRUE)
   id<<-readAsciiGrid("cell_id.asc")
   paises<<-readShapePoly("PAISES_COMPLETO5.shp")
-  mar <<- readShapePoly("Maritimo.shp")
+  mar <<- readShapePoly("LimMaritimo.shp")
 }
 
 ##CARGAR DATOS
@@ -89,27 +89,28 @@ CARGAR_DATOS <- function(ruta_datos){
     }
 
 #HACER GRAFICOS INFORME 
-graficos=function(){
-  summary(set16,stringsAsFactors =F )
+graficos <- function(){
+  summary(set16, stringsAsFactors = F)
+  ubicacion <- as.data.frame(ubicacion[, ])
+  coordinates(ubicacion) =~ longitud+ latitud
   
   registros <- c(p0/p0*100,p2/p0*100,p3/p0*100,p4/p0*100,p5/p0*100, p6/p0*100,p7/p0*100)
   names(registros) <- c("Inicial","Pais","Departamen","Municipio","Urbano","Extremo altitud","Perfectos")
   
   barplot(registros, main="REGISTROS MANTENIDOS",axes=T,las=2,font.axis=3,cex.lab=1,ylab="%")
   tabla_resumen <<- registros
-  tabla_resumen<<-registros
   
   # plotear ubicacion de los registros
-  extent=extent(c(-180, 180, -90, 83.62))
-  plot(extent(extent),main="UBICACION REGISTROS", ylab="latitud",xlab="longitud")
-  plot(ubicacion, col="red",add=T, cex=0.1, pch = 20)
+  extent <- extent(c(-180, 180, -90, 83.62))
+  plot(extent(extent), main = "UBICACION REGISTROS", ylab = "latitud", xlab = "longitud")
+  plot(ubicacion, col = "red", add = T, cex = 0.1, pch = 20)
   map(database = "world",add=T)
-  plot(ubicacion[which(is.na(ubicacion$bienPais)),], col="black",add=T);
+  plot(ubicacion[which(is.na(ubicacion$bienPais)), ], col = "black", add = T)
   
   #plotear  elementos POR PAISES 
   plot(extent(paises),main="DATOS Y PAISES", ylab="latitud",xlab="longitud")
   #plot.paises <- ubicacion[ubicacion$bienPais==1,]
-  coordinates(ubicacion)=~longitud+latitud
+  #coordinates(ubicacion)=~longitud+latitud
   plot(ubicacion[which(ubicacion$sugerencia_pais=="CO" & ubicacion$bienPais==1),], col="blue",add=T)
   plot(ubicacion[which(ubicacion$sugerencia_pais=="BR" & ubicacion$bienPais==1),], col="green",add=T);
   plot(ubicacion[which(ubicacion$sugerencia_pais=="VE" & ubicacion$bienPais==1),], col="black",add=T);
