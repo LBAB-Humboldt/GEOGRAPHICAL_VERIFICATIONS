@@ -32,7 +32,6 @@ rutas()
 info_geografica(ruta_info_geo)
   
 # #### 5. ARREGLAR TABLA --------------------------------------------------
-### verificacion taxonomica ###
 CARGAR_DATOS(ruta_datos)
 
 # # ##### 6. HACER LA VERIFICACION GEOGRAFICA  -------------------------------
