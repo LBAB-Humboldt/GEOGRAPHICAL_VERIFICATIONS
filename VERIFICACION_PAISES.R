@@ -4,7 +4,7 @@
 #-------------------------------------------------------#
 
 ###Cargar los paquetes de R necesarios para correr el script
-rm(list = ls())  # Borra  todo lo que este en memoria
+rm(list = ls())  # Borra todo lo que este en memoria
 gc()
 memory.limit(size = 1000000) 
 # ####### 1. CARGAR LOS PAQUTES DE R NECESARIOS -------------------------------------
@@ -21,23 +21,23 @@ library(rJava)
 ##  2. CARGAR LAS FUNCIONES
 
 # Seleccionar ruta de las funciones
-ruta_funciones <- dlgDir(default = getwd(), title= "ESPECIFIQUE LA RUTA DONDE ESTA EL ARCHIVO SET DE FUNCIONES.R")$res
+ruta_funciones <- dlgDir(default = getwd(), title = "ESPECIFIQUE LA RUTA DONDE ESTA EL ARCHIVO SET DE FUNCIONES.R")$res
 source(paste0(ruta_funciones,"/SET DE FUNCIONES.R"))
 
 # ### 3. DEFINIR RUTAS DE TRABAJO DE LOS ARCHIVOS -------------------------
 rutas()
 
-# ### 4. CARGAR DATOS -----------------------------------------------------
+#### 4. CARGAR DATOS -----------------------------------------------------
 ### Cargar datos de informacion geografica: 
 info_geografica(ruta_info_geo)
   
-# #### 5. ARREGLAR TABLA --------------------------------------------------
+##### 5. ARREGLAR TABLA --------------------------------------------------
 CARGAR_DATOS(ruta_datos)
 
-# # ##### 6. HACER LA VERIFICACION GEOGRAFICA  -------------------------------
+####### 6. HACER LA VERIFICACION GEOGRAFICA  -------------------------------
 RESULTADOS <- VERIFICACION_PAISES(ruta_salida, set3, ALT, mundo, colombia, casco, mpios, mpios2003, mpios1993, mpios1985, mpios1973, mpios1964, id, paises)
 
-# ### 7. GENERAR GRAFICOS ----------------------------------------------------
+#### 7. GENERAR GRAFICOS ----------------------------------------------------
 graficos()
 
 # ### 8. PARA GUARDAR LA TABLA GENERAL EN EXCEL ---------------------------
