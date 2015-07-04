@@ -1,5 +1,4 @@
-This work have been developed by Laboratory of Applied Biogeography and Bioacustics at Instituto Alexander von Humboldt (http://humboldt.org.co/es/investigacion/centro-de-analisis-y-sintesis/laboratorio-2)
-
+This work have been developed by Laboratory of Applied Biogeography and Bioacustics at Instituto Alexander von Humboldt
+http://humboldt.org.co/es/investigacion/centro-de-analisis-y-sintesis/laboratorio-2
 Please cite this works as follows:
-
-Gonz·lez I., Bello L.C., LondoÒo-Murcia M.C. & Vel·squez-Tibat· J. 2015. The best tool for geographical validation of biological recordos. Biota Colombiana
+Gonz√°lez I., Bello L.C., Londo√±o-Murcia M.C. & Vel√°squez-Tibat√° J. 2015. The best tool for geographical validation of biological recordos. Biota Colombiana
