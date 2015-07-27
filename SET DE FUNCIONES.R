@@ -501,7 +501,7 @@ VERIFICACION_PAISES=function(ruta_salida,set3,ALT,mundo,colombia,casco,mpios,mpi
   if (removeMaps == TRUE) {
     rm(list = c('mpios1964'))
   }
-  'ALT', 'id', 'casco','mar'
+
   
   set8 <- cbind(IGeom, "bien_muni" = bien_mun[, 2], sugerencia_mun, "mapa_verificacion" = bien_mun[, 3]) #
 
